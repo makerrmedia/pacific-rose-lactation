@@ -383,6 +383,7 @@
 p,li,blockquote,cite,.when span,.trust div,.badge span{text-wrap:pretty}
 .quote blockquote{text-wrap:balance}
 .nw{white-space:nowrap}
+.m-br{display:none}
 .cta-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
 footer .brand-text span:first-child{white-space:nowrap}
 @media(max-width:900px){
@@ -393,8 +394,12 @@ footer .brand-text span:first-child{white-space:nowrap}
   .ig div{font-size:19px;padding:18px}
 }
 @media(max-width:560px){
+  .m-br{display:inline}
   .eyebrow .sep{display:none}
   .eyebrow .nw{display:block;margin-top:8px}
-  .trust{display:grid;grid-template-columns:repeat(3,auto);justify-content:space-between;gap:16px}
-  .trust b{font-size:15.5px;white-space:nowrap}
+  /* three equal columns, centered, each label on two lines, thin dividers between */
+  .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:0;text-align:center;line-height:1.5}
+  .trust>div{padding:0 6px}
+  .trust>div+div{border-left:1px solid rgba(28,29,29,.12)}
+  .trust b{font-size:15.5px;white-space:nowrap;margin-bottom:4px}
 }
