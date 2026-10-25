@@ -1,9 +1,9 @@
-# Preview settings. These override the build settings in the Netlify dashboard.
-# Once TinaCloud is set up, change the command to "npm run build" and add
-# TINA_PUBLIC_CLIENT_ID and TINA_TOKEN in Netlify's Environment variables.
+# Builds the editing dashboard (/admin), then the site. Needs TINA_PUBLIC_CLIENT_ID
+# and TINA_TOKEN in Netlify's Environment variables. These settings override the
+# build settings in the Netlify dashboard.
 # At launch, remove PUBLIC_NOINDEX so Google can list the site.
 [build]
-  command = "npm run build:local"
+  command = "npm run build"
   publish = "dist"
 
 [build.environment]
