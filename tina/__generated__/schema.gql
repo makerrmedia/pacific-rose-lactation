@@ -69,6 +69,8 @@ type Query {
   aboutConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutFilter): AboutConnection!
   testimonials(relativePath: String): Testimonials!
   testimonialsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: TestimonialsFilter): TestimonialsConnection!
+  tiles(relativePath: String): Tiles!
+  tilesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: TilesFilter): TilesConnection!
   site(relativePath: String): Site!
   siteConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SiteFilter): SiteConnection!
 }
@@ -80,6 +82,7 @@ input DocumentFilter {
   faq: FaqFilter
   about: AboutFilter
   testimonials: TestimonialsFilter
+  tiles: TilesFilter
   site: SiteFilter
 }
 
@@ -106,7 +109,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Story | Bloom | Services | Faq | About | Testimonials | Site | Folder
+union DocumentNode = Story | Bloom | Services | Faq | About | Testimonials | Tiles | Site | Folder
 
 type Story implements Node & Document {
   title: String!
@@ -480,6 +483,94 @@ type TestimonialsConnection implements Connection {
   edges: [TestimonialsConnectionEdges]
 }
 
+type TilesTile1 {
+  label: String
+  line1: String
+  line2: String
+  link: String
+}
+
+type TilesTile2 {
+  label: String
+  line1: String
+  line2: String
+  link: String
+}
+
+type TilesTile3 {
+  label: String
+  line1: String
+  line2: String
+  link: String
+}
+
+type TilesTile4 {
+  label: String
+  line1: String
+  line2: String
+  link: String
+}
+
+type Tiles implements Node & Document {
+  eyebrow: String
+  heading: String
+  tile1: TilesTile1
+  tile2: TilesTile2
+  tile3: TilesTile3
+  tile4: TilesTile4
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input TilesTile1Filter {
+  label: StringFilter
+  line1: StringFilter
+  line2: StringFilter
+  link: StringFilter
+}
+
+input TilesTile2Filter {
+  label: StringFilter
+  line1: StringFilter
+  line2: StringFilter
+  link: StringFilter
+}
+
+input TilesTile3Filter {
+  label: StringFilter
+  line1: StringFilter
+  line2: StringFilter
+  link: StringFilter
+}
+
+input TilesTile4Filter {
+  label: StringFilter
+  line1: StringFilter
+  line2: StringFilter
+  link: StringFilter
+}
+
+input TilesFilter {
+  eyebrow: StringFilter
+  heading: StringFilter
+  tile1: TilesTile1Filter
+  tile2: TilesTile2Filter
+  tile3: TilesTile3Filter
+  tile4: TilesTile4Filter
+}
+
+type TilesConnectionEdges {
+  cursor: String!
+  node: Tiles
+}
+
+type TilesConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [TilesConnectionEdges]
+}
+
 type Site implements Node & Document {
   phone: String
   email: String
@@ -551,6 +642,8 @@ type Mutation {
   createAbout(relativePath: String!, params: AboutMutation!): About!
   updateTestimonials(relativePath: String!, params: TestimonialsMutation!): Testimonials!
   createTestimonials(relativePath: String!, params: TestimonialsMutation!): Testimonials!
+  updateTiles(relativePath: String!, params: TilesMutation!): Tiles!
+  createTiles(relativePath: String!, params: TilesMutation!): Tiles!
   updateSite(relativePath: String!, params: SiteMutation!): Site!
   createSite(relativePath: String!, params: SiteMutation!): Site!
 }
@@ -562,6 +655,7 @@ input DocumentUpdateMutation {
   faq: FaqMutation
   about: AboutMutation
   testimonials: TestimonialsMutation
+  tiles: TilesMutation
   site: SiteMutation
   relativePath: String
 }
@@ -573,6 +667,7 @@ input DocumentMutation {
   faq: FaqMutation
   about: AboutMutation
   testimonials: TestimonialsMutation
+  tiles: TilesMutation
   site: SiteMutation
 }
 
@@ -707,6 +802,43 @@ input TestimonialsItemsMutation {
 
 input TestimonialsMutation {
   items: [TestimonialsItemsMutation]
+}
+
+input TilesTile1Mutation {
+  label: String
+  line1: String
+  line2: String
+  link: String
+}
+
+input TilesTile2Mutation {
+  label: String
+  line1: String
+  line2: String
+  link: String
+}
+
+input TilesTile3Mutation {
+  label: String
+  line1: String
+  line2: String
+  link: String
+}
+
+input TilesTile4Mutation {
+  label: String
+  line1: String
+  line2: String
+  link: String
+}
+
+input TilesMutation {
+  eyebrow: String
+  heading: String
+  tile1: TilesTile1Mutation
+  tile2: TilesTile2Mutation
+  tile3: TilesTile3Mutation
+  tile4: TilesTile4Mutation
 }
 
 input SiteMutation {

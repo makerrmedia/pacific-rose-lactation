@@ -96,6 +96,8 @@ export type Query = {
   aboutConnection: AboutConnection;
   testimonials: Testimonials;
   testimonialsConnection: TestimonialsConnection;
+  tiles: Tiles;
+  tilesConnection: TilesConnection;
   site: Site;
   siteConnection: SiteConnection;
 };
@@ -212,6 +214,21 @@ export type QueryTestimonialsConnectionArgs = {
 };
 
 
+export type QueryTilesArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryTilesConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<TilesFilter>;
+};
+
+
 export type QuerySiteArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
@@ -233,6 +250,7 @@ export type DocumentFilter = {
   faq?: InputMaybe<FaqFilter>;
   about?: InputMaybe<AboutFilter>;
   testimonials?: InputMaybe<TestimonialsFilter>;
+  tiles?: InputMaybe<TilesFilter>;
   site?: InputMaybe<SiteFilter>;
 };
 
@@ -273,7 +291,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Story | Bloom | Services | Faq | About | Testimonials | Site | Folder;
+export type DocumentNode = Story | Bloom | Services | Faq | About | Testimonials | Tiles | Site | Folder;
 
 export type Story = Node & Document & {
   __typename?: 'Story';
@@ -678,6 +696,101 @@ export type TestimonialsConnection = Connection & {
   edges?: Maybe<Array<Maybe<TestimonialsConnectionEdges>>>;
 };
 
+export type TilesTile1 = {
+  __typename?: 'TilesTile1';
+  label?: Maybe<Scalars['String']['output']>;
+  line1?: Maybe<Scalars['String']['output']>;
+  line2?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type TilesTile2 = {
+  __typename?: 'TilesTile2';
+  label?: Maybe<Scalars['String']['output']>;
+  line1?: Maybe<Scalars['String']['output']>;
+  line2?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type TilesTile3 = {
+  __typename?: 'TilesTile3';
+  label?: Maybe<Scalars['String']['output']>;
+  line1?: Maybe<Scalars['String']['output']>;
+  line2?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type TilesTile4 = {
+  __typename?: 'TilesTile4';
+  label?: Maybe<Scalars['String']['output']>;
+  line1?: Maybe<Scalars['String']['output']>;
+  line2?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Tiles = Node & Document & {
+  __typename?: 'Tiles';
+  eyebrow?: Maybe<Scalars['String']['output']>;
+  heading?: Maybe<Scalars['String']['output']>;
+  tile1?: Maybe<TilesTile1>;
+  tile2?: Maybe<TilesTile2>;
+  tile3?: Maybe<TilesTile3>;
+  tile4?: Maybe<TilesTile4>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type TilesTile1Filter = {
+  label?: InputMaybe<StringFilter>;
+  line1?: InputMaybe<StringFilter>;
+  line2?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type TilesTile2Filter = {
+  label?: InputMaybe<StringFilter>;
+  line1?: InputMaybe<StringFilter>;
+  line2?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type TilesTile3Filter = {
+  label?: InputMaybe<StringFilter>;
+  line1?: InputMaybe<StringFilter>;
+  line2?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type TilesTile4Filter = {
+  label?: InputMaybe<StringFilter>;
+  line1?: InputMaybe<StringFilter>;
+  line2?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type TilesFilter = {
+  eyebrow?: InputMaybe<StringFilter>;
+  heading?: InputMaybe<StringFilter>;
+  tile1?: InputMaybe<TilesTile1Filter>;
+  tile2?: InputMaybe<TilesTile2Filter>;
+  tile3?: InputMaybe<TilesTile3Filter>;
+  tile4?: InputMaybe<TilesTile4Filter>;
+};
+
+export type TilesConnectionEdges = {
+  __typename?: 'TilesConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Tiles>;
+};
+
+export type TilesConnection = Connection & {
+  __typename?: 'TilesConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<TilesConnectionEdges>>>;
+};
+
 export type Site = Node & Document & {
   __typename?: 'Site';
   phone?: Maybe<Scalars['String']['output']>;
@@ -753,6 +866,8 @@ export type Mutation = {
   createAbout: About;
   updateTestimonials: Testimonials;
   createTestimonials: Testimonials;
+  updateTiles: Tiles;
+  createTiles: Tiles;
   updateSite: Site;
   createSite: Site;
 };
@@ -863,6 +978,18 @@ export type MutationCreateTestimonialsArgs = {
 };
 
 
+export type MutationUpdateTilesArgs = {
+  relativePath: Scalars['String']['input'];
+  params: TilesMutation;
+};
+
+
+export type MutationCreateTilesArgs = {
+  relativePath: Scalars['String']['input'];
+  params: TilesMutation;
+};
+
+
 export type MutationUpdateSiteArgs = {
   relativePath: Scalars['String']['input'];
   params: SiteMutation;
@@ -881,6 +1008,7 @@ export type DocumentUpdateMutation = {
   faq?: InputMaybe<FaqMutation>;
   about?: InputMaybe<AboutMutation>;
   testimonials?: InputMaybe<TestimonialsMutation>;
+  tiles?: InputMaybe<TilesMutation>;
   site?: InputMaybe<SiteMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
@@ -892,6 +1020,7 @@ export type DocumentMutation = {
   faq?: InputMaybe<FaqMutation>;
   about?: InputMaybe<AboutMutation>;
   testimonials?: InputMaybe<TestimonialsMutation>;
+  tiles?: InputMaybe<TilesMutation>;
   site?: InputMaybe<SiteMutation>;
 };
 
@@ -1026,6 +1155,43 @@ export type TestimonialsItemsMutation = {
 
 export type TestimonialsMutation = {
   items?: InputMaybe<Array<InputMaybe<TestimonialsItemsMutation>>>;
+};
+
+export type TilesTile1Mutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  line1?: InputMaybe<Scalars['String']['input']>;
+  line2?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TilesTile2Mutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  line1?: InputMaybe<Scalars['String']['input']>;
+  line2?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TilesTile3Mutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  line1?: InputMaybe<Scalars['String']['input']>;
+  line2?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TilesTile4Mutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  line1?: InputMaybe<Scalars['String']['input']>;
+  line2?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TilesMutation = {
+  eyebrow?: InputMaybe<Scalars['String']['input']>;
+  heading?: InputMaybe<Scalars['String']['input']>;
+  tile1?: InputMaybe<TilesTile1Mutation>;
+  tile2?: InputMaybe<TilesTile2Mutation>;
+  tile3?: InputMaybe<TilesTile3Mutation>;
+  tile4?: InputMaybe<TilesTile4Mutation>;
 };
 
 export type SiteMutation = {
@@ -1199,6 +1365,43 @@ export type TestimonialsFilter = {
   items?: TestimonialsItemsFilter | null | undefined;
 };
 
+export type TilesTile1Filter = {
+  label?: StringFilter | null | undefined;
+  line1?: StringFilter | null | undefined;
+  line2?: StringFilter | null | undefined;
+  link?: StringFilter | null | undefined;
+};
+
+export type TilesTile2Filter = {
+  label?: StringFilter | null | undefined;
+  line1?: StringFilter | null | undefined;
+  line2?: StringFilter | null | undefined;
+  link?: StringFilter | null | undefined;
+};
+
+export type TilesTile3Filter = {
+  label?: StringFilter | null | undefined;
+  line1?: StringFilter | null | undefined;
+  line2?: StringFilter | null | undefined;
+  link?: StringFilter | null | undefined;
+};
+
+export type TilesTile4Filter = {
+  label?: StringFilter | null | undefined;
+  line1?: StringFilter | null | undefined;
+  line2?: StringFilter | null | undefined;
+  link?: StringFilter | null | undefined;
+};
+
+export type TilesFilter = {
+  eyebrow?: StringFilter | null | undefined;
+  heading?: StringFilter | null | undefined;
+  tile1?: TilesTile1Filter | null | undefined;
+  tile2?: TilesTile2Filter | null | undefined;
+  tile3?: TilesTile3Filter | null | undefined;
+  tile4?: TilesTile4Filter | null | undefined;
+};
+
 export type ImageFilter = {
   startsWith?: string | null | undefined;
   eq?: string | null | undefined;
@@ -1233,6 +1436,8 @@ export type FaqPartsFragment = { __typename: 'Faq', items: Array<{ __typename: '
 export type AboutPartsFragment = { __typename: 'About', name: string | null, homeCred: string | null, aboutCred: string | null, homeBlurb: string | null, bio: Array<{ __typename: 'AboutBio', text: string | null } | null> | null, homeFacts: Array<{ __typename: 'AboutHomeFacts', big: string | null, small: string | null } | null> | null, facts: Array<{ __typename: 'AboutFacts', big: string | null, small: string | null } | null> | null, timeline: Array<{ __typename: 'AboutTimeline', year: string | null, title: string | null, text: string | null } | null> | null };
 
 export type TestimonialsPartsFragment = { __typename: 'Testimonials', items: Array<{ __typename: 'TestimonialsItems', quote: string | null, attribution: string | null, placeholder: boolean | null } | null> | null };
+
+export type TilesPartsFragment = { __typename: 'Tiles', eyebrow: string | null, heading: string | null, tile1: { __typename: 'TilesTile1', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile2: { __typename: 'TilesTile2', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile3: { __typename: 'TilesTile3', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile4: { __typename: 'TilesTile4', label: string | null, line1: string | null, line2: string | null, link: string | null } | null };
 
 export type SitePartsFragment = { __typename: 'Site', phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, facebookUrl: string | null, portraitPhoto: string | null, tagline: string | null, name: string | null, url: string | null, contactFormEndpoint: string | null, reminderFormEndpoint: string | null };
 
@@ -1349,6 +1554,25 @@ export type TestimonialsConnectionQueryVariables = Exact<{
 
 
 export type TestimonialsConnectionQuery = { testimonialsConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Testimonials', id: string, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, items: Array<{ __typename: 'TestimonialsItems', quote: string | null, attribution: string | null, placeholder: boolean | null } | null> | null } | null } | null> | null } };
+
+export type TilesQueryVariables = Exact<{
+  relativePath: string;
+}>;
+
+
+export type TilesQuery = { tiles: { __typename: 'Tiles', id: string, eyebrow: string | null, heading: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, tile1: { __typename: 'TilesTile1', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile2: { __typename: 'TilesTile2', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile3: { __typename: 'TilesTile3', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile4: { __typename: 'TilesTile4', label: string | null, line1: string | null, line2: string | null, link: string | null } | null } };
+
+export type TilesConnectionQueryVariables = Exact<{
+  before?: string | null | undefined;
+  after?: string | null | undefined;
+  first?: number | null | undefined;
+  last?: number | null | undefined;
+  sort?: string | null | undefined;
+  filter?: TilesFilter | null | undefined;
+}>;
+
+
+export type TilesConnectionQuery = { tilesConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Tiles', id: string, eyebrow: string | null, heading: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, tile1: { __typename: 'TilesTile1', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile2: { __typename: 'TilesTile2', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile3: { __typename: 'TilesTile3', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile4: { __typename: 'TilesTile4', label: string | null, line1: string | null, line2: string | null, link: string | null } | null } | null } | null> | null } };
 
 export type SiteQueryVariables = Exact<{
   relativePath: string;
@@ -1498,6 +1722,41 @@ export const TestimonialsPartsFragmentDoc = gql`
     quote
     attribution
     placeholder
+  }
+}
+    `;
+export const TilesPartsFragmentDoc = gql`
+    fragment TilesParts on Tiles {
+  __typename
+  eyebrow
+  heading
+  tile1 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+  tile2 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+  tile3 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+  tile4 {
+    __typename
+    label
+    line1
+    line2
+    link
   }
 }
     `;
@@ -1861,6 +2120,63 @@ export const TestimonialsConnectionDocument = gql`
   }
 }
     ${TestimonialsPartsFragmentDoc}`;
+export const TilesDocument = gql`
+    query tiles($relativePath: String!) {
+  tiles(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...TilesParts
+  }
+}
+    ${TilesPartsFragmentDoc}`;
+export const TilesConnectionDocument = gql`
+    query tilesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: TilesFilter) {
+  tilesConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...TilesParts
+      }
+    }
+  }
+}
+    ${TilesPartsFragmentDoc}`;
 export const SiteDocument = gql`
     query site($relativePath: String!) {
   site(relativePath: $relativePath) {
@@ -1956,6 +2272,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     testimonialsConnection(variables?: TestimonialsConnectionQueryVariables, options?: C): Promise<{data: TestimonialsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TestimonialsConnectionQueryVariables, query: string}> {
         return requester<{data: TestimonialsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TestimonialsConnectionQueryVariables, query: string}, TestimonialsConnectionQueryVariables>(TestimonialsConnectionDocument, variables, options);
+      },
+    tiles(variables: TilesQueryVariables, options?: C): Promise<{data: TilesQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TilesQueryVariables, query: string}> {
+        return requester<{data: TilesQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TilesQueryVariables, query: string}, TilesQueryVariables>(TilesDocument, variables, options);
+      },
+    tilesConnection(variables?: TilesConnectionQueryVariables, options?: C): Promise<{data: TilesConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TilesConnectionQueryVariables, query: string}> {
+        return requester<{data: TilesConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TilesConnectionQueryVariables, query: string}, TilesConnectionQueryVariables>(TilesConnectionDocument, variables, options);
       },
     site(variables: SiteQueryVariables, options?: C): Promise<{data: SiteQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SiteQueryVariables, query: string}> {
         return requester<{data: SiteQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SiteQueryVariables, query: string}, SiteQueryVariables>(SiteDocument, variables, options);

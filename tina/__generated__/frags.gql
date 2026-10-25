@@ -124,6 +124,40 @@ fragment TestimonialsParts on Testimonials {
   }
 }
 
+fragment TilesParts on Tiles {
+  __typename
+  eyebrow
+  heading
+  tile1 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+  tile2 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+  tile3 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+  tile4 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+}
+
 fragment SiteParts on Site {
   __typename
   phone

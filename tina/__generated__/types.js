@@ -137,6 +137,41 @@ export const TestimonialsPartsFragmentDoc = gql`
   }
 }
     `;
+export const TilesPartsFragmentDoc = gql`
+    fragment TilesParts on Tiles {
+  __typename
+  eyebrow
+  heading
+  tile1 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+  tile2 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+  tile3 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+  tile4 {
+    __typename
+    label
+    line1
+    line2
+    link
+  }
+}
+    `;
 export const SitePartsFragmentDoc = gql`
     fragment SiteParts on Site {
   __typename
@@ -497,6 +532,63 @@ export const TestimonialsConnectionDocument = gql`
   }
 }
     ${TestimonialsPartsFragmentDoc}`;
+export const TilesDocument = gql`
+    query tiles($relativePath: String!) {
+  tiles(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...TilesParts
+  }
+}
+    ${TilesPartsFragmentDoc}`;
+export const TilesConnectionDocument = gql`
+    query tilesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: TilesFilter) {
+  tilesConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...TilesParts
+      }
+    }
+  }
+}
+    ${TilesPartsFragmentDoc}`;
 export const SiteDocument = gql`
     query site($relativePath: String!) {
   site(relativePath: $relativePath) {
@@ -591,6 +683,12 @@ export function getSdk(requester) {
     },
     testimonialsConnection(variables, options) {
       return requester(TestimonialsConnectionDocument, variables, options);
+    },
+    tiles(variables, options) {
+      return requester(TilesDocument, variables, options);
+    },
+    tilesConnection(variables, options) {
+      return requester(TilesConnectionDocument, variables, options);
     },
     site(variables, options) {
       return requester(SiteDocument, variables, options);

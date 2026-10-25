@@ -28,6 +28,7 @@ Everything Whitney is likely to change is in plain content files. These are the 
 | FAQ | `src/data/faq.json` |
 | Bio, credentials, timeline, facts | `src/data/about.json` |
 | Testimonials (home page) | `src/data/testimonials.json` |
+| "Where are you right now?" tiles (home page) | `src/data/tiles.json` |
 | Phone, email, Instagram, booking link, photo, form endpoints | `src/data/site.json` |
 | Affiliation logos | `src/data/affiliations.json` + `public/affiliations/` |
 
@@ -72,6 +73,7 @@ account.
 | FAQ | Questions and answers |
 | About Whitney | Bio, credentials, timeline |
 | Testimonials | Quotes (placeholders are labeled) |
+| Home page tiles | The four colored "Where are you right now?" tiles: label, two lines, link |
 | Contact + site info | Phone, email, Instagram, booking link, her photo |
 
 Layout and design changes are not in the dashboard. Those happen in the code.

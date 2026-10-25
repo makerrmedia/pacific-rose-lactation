@@ -1,0 +1,8 @@
+{
+  "eyebrow": "Not sure where to start?",
+  "heading": "Where are you right now?",
+  "tile1": { "label": "Feeding hurts", "line1": "Painful latch or", "line2": "sore nipples", "link": "/services" },
+  "tile2": { "label": "Feeling alone", "line1": "Come to", "line2": "Bloom Circle", "link": "/bloom-circle" },
+  "tile3": { "label": "Back to work", "line1": "Pumping and", "line2": "bottle plans", "link": "/services" },
+  "tile4": { "label": "Tongue tie?", "line1": "Get an", "line2": "assessment", "link": "/services" }
+}

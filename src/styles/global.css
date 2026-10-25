@@ -393,6 +393,7 @@ footer .brand-text span:first-child{white-space:nowrap}
   footer .brand img{width:34px;height:34px;padding:3px}
   footer .brand-text span:first-child{font-size:clamp(11px,3.6vw,14px)}
   footer .brand-text span:last-child{font-size:7px;letter-spacing:.42em;margin-top:5px}
+  footer .f-brand p{font-size:12.5px}
   .bloom-art{max-width:230px}
   .bloom-art .ring2{inset:-14px}
   .ig{grid-template-columns:repeat(2,minmax(0,1fr))}

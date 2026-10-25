@@ -33,6 +33,16 @@ const yesNo = (name: string, label: string, description?: string) => ({
   description,
 });
 
+// Pages a home page tile can link to.
+const TILE_LINKS = [
+  { value: '/services', label: 'Services' },
+  { value: '/services#book', label: 'Rates + booking' },
+  { value: '/bloom-circle', label: 'Bloom Circle' },
+  { value: '/about', label: 'About Whitney' },
+  { value: '/stories', label: 'Parent stories' },
+  { value: '/contact', label: 'Contact' },
+];
+
 // Related-service choice that links to the Bloom Circle page instead of Services.
 const BLOOM_SERVICE = 'Join Bloom Circle';
 
@@ -313,6 +323,56 @@ export default defineConfig({
       ]),
 
       // ------------------------------------------------------------- Site info
+      // ------------------------------------------------------------ home tiles
+      jsonFile('tiles', 'Home page tiles', 'tiles', [
+        text('eyebrow', 'Small heading', 'For example: Not sure where to start?'),
+        text('heading', 'Heading'),
+        {
+          type: 'object',
+          name: 'tile1',
+          label: 'Tile 1 (pink)',
+          fields: [
+            text('label', 'Small label', 'A few words in capitals above the text. For example: Feeding hurts'),
+            text('line1', 'First line', 'Keep both lines short so the tiles stay even.'),
+            text('line2', 'Second line'),
+            { type: 'string', name: 'link', label: 'Goes to', options: TILE_LINKS },
+          ],
+        },
+        {
+          type: 'object',
+          name: 'tile2',
+          label: 'Tile 2 (green)',
+          fields: [
+            text('label', 'Small label', 'A few words in capitals above the text. For example: Feeding hurts'),
+            text('line1', 'First line', 'Keep both lines short so the tiles stay even.'),
+            text('line2', 'Second line'),
+            { type: 'string', name: 'link', label: 'Goes to', options: TILE_LINKS },
+          ],
+        },
+        {
+          type: 'object',
+          name: 'tile3',
+          label: 'Tile 3 (blue)',
+          fields: [
+            text('label', 'Small label', 'A few words in capitals above the text. For example: Feeding hurts'),
+            text('line1', 'First line', 'Keep both lines short so the tiles stay even.'),
+            text('line2', 'Second line'),
+            { type: 'string', name: 'link', label: 'Goes to', options: TILE_LINKS },
+          ],
+        },
+        {
+          type: 'object',
+          name: 'tile4',
+          label: 'Tile 4 (blush)',
+          fields: [
+            text('label', 'Small label', 'A few words in capitals above the text. For example: Feeding hurts'),
+            text('line1', 'First line', 'Keep both lines short so the tiles stay even.'),
+            text('line2', 'Second line'),
+            { type: 'string', name: 'link', label: 'Goes to', options: TILE_LINKS },
+          ],
+        },
+      ]),
+
       jsonFile('site', 'Contact + site info', 'site', [
         text('phone', 'Phone'),
         text('email', 'Email'),

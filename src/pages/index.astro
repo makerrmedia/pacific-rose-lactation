@@ -7,6 +7,7 @@ import bloom from '../data/bloom.json';
 import about from '../data/about.json';
 import svc from '../data/services.json';
 import testimonialData from '../data/testimonials.json';
+import tiles from '../data/tiles.json';
 const testimonials = testimonialData.items;
 import { upcoming, nextShort, type BloomConfig } from '../lib/bloom';
 
@@ -130,14 +131,13 @@ const phoneHref = `tel:${site.phone.replace(/\D/g, '')}`;
     <section style="padding-top:0">
       <div class="wrap">
         <div class="head ig-head">
-          <span class="eyebrow">Not sure where to start?</span>
-          <h2>Where are you right now?</h2>
+          <span class="eyebrow">{tiles.eyebrow}</span>
+          <h2>{tiles.heading}</h2>
         </div>
         <div class="ig">
-          <a class="i1" href="/services"><small>Feeding hurts</small><span>Painful latch or<br />sore nipples</span><i aria-hidden="true">→</i></a>
-          <a class="i2" href="/bloom-circle"><small>Feeling alone</small><span>Come to<br />Bloom Circle</span><i aria-hidden="true">→</i></a>
-          <a class="i3" href="/services"><small>Back to work</small><span>Pumping and<br />bottle plans</span><i aria-hidden="true">→</i></a>
-          <a class="i4" href="/services"><small>Tongue tie?</small><span>Get an<br />assessment</span><i aria-hidden="true">→</i></a>
+          {[tiles.tile1, tiles.tile2, tiles.tile3, tiles.tile4].map((t, i) => (
+            <a class={`i${i + 1}`} href={t.link}><small>{t.label}</small><span>{t.line1}<br />{t.line2}</span><i aria-hidden="true">→</i></a>
+          ))}
         </div>
         <p class="ig-follow">Follow along on Instagram&nbsp;<a href={site.instagramUrl} target="_blank" rel="noopener">{site.instagramHandle}</a></p>
       </div>
