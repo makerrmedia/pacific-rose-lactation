@@ -45,6 +45,8 @@ const ld = {
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#f0efef" />
+    <!-- Stop iPhones turning words like "Wednesday" or "101" into dotted links -->
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
@@ -88,7 +90,7 @@ const ld = {
     <footer>
       <div class="wrap">
         <div class="f-grid">
-          <div>
+          <div class="f-brand">
             <div class="brand">
               <img src="/images/pacific-rose-icon.png" width="52" height="52" alt="" />
               <span class="brand-text"><span>Pacific Rose</span><span>Lactation</span></span>
@@ -129,6 +131,19 @@ const ld = {
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script>
+      // Browsers without text-wrap: pretty (older Safari, Firefox): keep the last two words of body text together.
+      if (!CSS.supports('text-wrap', 'pretty')) {
+        document.querySelectorAll('p, li, blockquote').forEach((el) => {
+          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+          let last: Text | null = null;
+          while (walker.nextNode()) if (walker.currentNode.textContent?.trim()) last = walker.currentNode as Text;
+          if (!last) return;
+          const text = last.textContent ?? '';
+          const trimmed = text.trimEnd();
+          const i = trimmed.lastIndexOf(' ');
+          if (i > 0) last.textContent = text.slice(0, i) + '\u00a0' + text.slice(i + 1);
+        });
+      }
       const burger = document.getElementById('burger');
       const links = document.getElementById('links');
       burger?.addEventListener('click', () => {
