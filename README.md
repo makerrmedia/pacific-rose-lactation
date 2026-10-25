@@ -131,13 +131,16 @@ pacificroselactation.com.
       from the Squarespace image host, which would break when that account closes.
 - [x] Affiliation logos: confirmed OK to use on the website (October 2026).
 - [x] Fonts: keeping Belleza and Montserrat (both free, self-hosted). No paid font license needed.
-- [ ] Replace placeholder testimonials and sample stories with real ones (written permission first).
+- [x] Placeholder testimonials replaced with reviews from the old site (all saved in `content-archive/old-site-reviews.md`).
+- [ ] Replace the sample parent stories with real ones (written permission first).
 - [ ] Set the form endpoints and test both forms.
 - [x] Add redirects for every old Squarespace address in `public/_redirects` (done from the Squarespace sitemap, October 2026).
 - [ ] Point the domain at the new host (change website records only, leave email records alone), then check email.
 - [ ] Add the site to Google Search Console and submit `sitemap-index.xml`.
 
 ## Notes
+
+- `content-archive/` holds the reviews copied from the old Squarespace site, word for word. It is not published.
 
 - Astro is pinned to 5.18.2. `npm audit` lists Astro advisories that are fixed in Astro 7.4 or newer. They concern
   server rendering, server islands, image optimization, and dynamic attributes, none of which this static site uses,

@@ -1,19 +1,19 @@
 {
   "items": [
     {
-      "quote": "Add a real client testimonial here about feeling supported and heard.",
-      "attribution": "First name, Portland",
-      "placeholder": true
+      "quote": "No words can express how valuable Whitney’s advice was to us when most needed! Her unrushed, gentle and partner inclusive approach made me feel calm and empowered. Thank you Whitney for supporting me to have an amazing (still on going) breastfeeding experience! You are gold!!",
+      "attribution": "Petra and Athena",
+      "placeholder": false
     },
     {
-      "quote": "Add a testimonial about a feeding challenge that felt resolved.",
-      "attribution": "First name, Astoria",
-      "placeholder": true
+      "quote": "Whitney is knowledgeable, supportive, and incredibly helpful. My baby is much more settled, sleeping better, and we’ve been able to continue breastfeeding which was our goal. Highly recommend!",
+      "attribution": "Sarah, Google review",
+      "placeholder": false
     },
     {
-      "quote": "Add a Bloom Circle quote about finding community.",
-      "attribution": "First name, Bloom Circle",
-      "placeholder": true
+      "quote": "Whitney was professional, kind, and thorough, she talks through everything with you and makes sure you have all the options. Great after care too. Would recommend to anyone.",
+      "attribution": "Natasha, Google review",
+      "placeholder": false
     }
   ]
 }
