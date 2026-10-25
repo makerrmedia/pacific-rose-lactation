@@ -2,6 +2,7 @@
 title: 'A first-time mom with a thousand questions, and support from day one to weaning'
 tag: New parents
 place: Astoria
+name: Emily
 excerpt: I came in with a thousand questions. Whitney stayed with us from newborn weight gain all the way to weaning, past our daughter’s first birthday.
 going: 'As a first-time mom, I came in with a thousand questions, and our daughter needed help bringing her weight up as a newborn. Whitney never once made me feel silly for asking anything. She met me exactly where I was, with no judgment on feeding method, whether that was breastfeeding, pumping, formula, or some combination.'
 worked: 'We started by bringing up her weight and establishing my supply. From there, Whitney stayed with us through every stage: managing my supply, digestion issues and spit up, introducing bottles, returning to work, and starting solids. When the time came, she helped us make a weaning plan, too. She’s genuinely invested, celebrates every win, and always finds a solution that fits our life.'

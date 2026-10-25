@@ -31,7 +31,7 @@ const serviceHref =
           <h1>{s.title}</h1>
           <div class="story-meta">
             <span class="tg">{s.tag}</span>
-            <span>Parent, {s.place}</span>
+            <span>{s.name?.trim() || 'Parent'}, {s.place}</span>
             {s.sample && (<Fragment><span>·</span><span class="sample-tag">Sample story, placeholder text</span></Fragment>)}
           </div>
         </div>

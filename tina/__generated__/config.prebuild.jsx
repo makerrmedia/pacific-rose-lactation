@@ -251,6 +251,7 @@ var config_default = defineConfig({
             required: true
           },
           { type: "string", name: "place", label: "City", options: ["Portland", "Astoria"], required: true },
+          text("name", "Parent\u2019s name (optional)", 'First name, or first name and initial. Shown next to the city on the story page. Leave blank to show "Parent".'),
           longText("excerpt", "Card teaser", "One or two sentences shown on the story card."),
           longText("going", "What was going on", "The parent's words. 3 to 5 sentences. Do not include quotation marks."),
           longText("worked", "What we worked on", "The parent's words. 3 to 5 sentences."),

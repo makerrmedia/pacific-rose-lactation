@@ -11,6 +11,7 @@ export const StoryPartsFragmentDoc = gql`
   title
   tag
   place
+  name
   excerpt
   going
   worked

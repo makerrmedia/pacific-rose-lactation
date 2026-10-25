@@ -54,7 +54,7 @@ the dashboard on purpose. Edit them in `bloom.json` if the regular pattern ever 
 ### Parent stories
 
 Copy an existing file in `src/content/stories/` and edit it. Fields: `title`, `tag`, `place` (Portland or
-Astoria), `excerpt`, `going`, `worked`, `now`, `serviceLabel` (a service title, or `Join Bloom Circle`), `seoTitle`, `metaDescription`.
+Astoria), `name` (optional; blank shows "Parent"), `excerpt`, `going`, `worked`, `now`, `serviceLabel` (a service title, or `Join Bloom Circle`), `seoTitle`, `metaDescription`.
 
 The six included stories are placeholders marked `sample: true`. Sample stories show a "Sample story" label and are
 hidden from Google (`noindex`). When a story is replaced with a real one, set `sample: false`. Set `draft: true` to

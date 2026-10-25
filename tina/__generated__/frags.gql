@@ -3,6 +3,7 @@ fragment StoryParts on Story {
   title
   tag
   place
+  name
   excerpt
   going
   worked

@@ -7,6 +7,7 @@ const stories = defineCollection({
     title: z.string(),
     tag: z.string(),
     place: z.enum(['Portland', 'Astoria']),
+    name: z.string().optional(),
     color: z.coerce.number().int().min(1).max(6).default(1),
     excerpt: z.string(),
     going: z.string(),

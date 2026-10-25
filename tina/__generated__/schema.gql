@@ -118,6 +118,7 @@ type Story implements Node & Document {
   title: String!
   tag: String!
   place: String!
+  name: String
   excerpt: String
   going: String
   worked: String
@@ -160,6 +161,7 @@ input StoryFilter {
   title: StringFilter
   tag: StringFilter
   place: StringFilter
+  name: StringFilter
   excerpt: StringFilter
   going: StringFilter
   worked: StringFilter
@@ -734,6 +736,7 @@ input StoryMutation {
   title: String
   tag: String
   place: String
+  name: String
   excerpt: String
   going: String
   worked: String

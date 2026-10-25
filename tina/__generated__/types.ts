@@ -316,6 +316,7 @@ export type Story = Node & Document & {
   title: Scalars['String']['output'];
   tag: Scalars['String']['output'];
   place: Scalars['String']['output'];
+  name?: Maybe<Scalars['String']['output']>;
   excerpt?: Maybe<Scalars['String']['output']>;
   going?: Maybe<Scalars['String']['output']>;
   worked?: Maybe<Scalars['String']['output']>;
@@ -358,6 +359,7 @@ export type StoryFilter = {
   title?: InputMaybe<StringFilter>;
   tag?: InputMaybe<StringFilter>;
   place?: InputMaybe<StringFilter>;
+  name?: InputMaybe<StringFilter>;
   excerpt?: InputMaybe<StringFilter>;
   going?: InputMaybe<StringFilter>;
   worked?: InputMaybe<StringFilter>;
@@ -1120,6 +1122,7 @@ export type StoryMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   tag?: InputMaybe<Scalars['String']['input']>;
   place?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
   excerpt?: InputMaybe<Scalars['String']['input']>;
   going?: InputMaybe<Scalars['String']['input']>;
   worked?: InputMaybe<Scalars['String']['input']>;
@@ -1347,6 +1350,7 @@ export type StoryFilter = {
   title?: StringFilter | null | undefined;
   tag?: StringFilter | null | undefined;
   place?: StringFilter | null | undefined;
+  name?: StringFilter | null | undefined;
   excerpt?: StringFilter | null | undefined;
   going?: StringFilter | null | undefined;
   worked?: StringFilter | null | undefined;
@@ -1555,7 +1559,7 @@ export type SiteFilter = {
   name?: StringFilter | null | undefined;
 };
 
-export type StoryPartsFragment = { __typename: 'Story', title: string, tag: string, place: string, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: string | null, order: number | null };
+export type StoryPartsFragment = { __typename: 'Story', title: string, tag: string, place: string, name: string | null, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: string | null, order: number | null };
 
 export type BloomPartsFragment = { __typename: 'Bloom', scheduleLabel: string | null, timeLabel: string | null, venue: string | null, venueNote: string | null, street: string | null, cityLine: string | null, mapsUrl: string | null, topics: Array<string | null> | null, cancelledDates: Array<{ __typename: 'BloomCancelledDates', date: string | null, note: string | null } | null> | null, extraDates: Array<{ __typename: 'BloomExtraDates', date: string | null, note: string | null } | null> | null };
 
@@ -1578,7 +1582,7 @@ export type StoryQueryVariables = Exact<{
 }>;
 
 
-export type StoryQuery = { story: { __typename: 'Story', id: string, title: string, tag: string, place: string, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: string | null, order: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type StoryQuery = { story: { __typename: 'Story', id: string, title: string, tag: string, place: string, name: string | null, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: string | null, order: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type StoryConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1590,7 +1594,7 @@ export type StoryConnectionQueryVariables = Exact<{
 }>;
 
 
-export type StoryConnectionQuery = { storyConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Story', id: string, title: string, tag: string, place: string, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: string | null, order: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type StoryConnectionQuery = { storyConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Story', id: string, title: string, tag: string, place: string, name: string | null, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: string | null, order: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type BloomQueryVariables = Exact<{
   relativePath: string;
@@ -1750,6 +1754,7 @@ export const StoryPartsFragmentDoc = gql`
   title
   tag
   place
+  name
   excerpt
   going
   worked
