@@ -135,3 +135,5 @@ As a first-time mom, I came in with a thousand questions. Whitney has never once
 What I didn't expect was how far beyond those first few weeks this relationship would go. She's been with us through returning to work, introducing bottles, starting solids, and working through digestion issues and spit up. She's genuinely invested, celebrates every win, and always finds a solution that fits our life. Our insurance covers her services, but I would pay out of pocket without blinking... this has been the best support we've received, pre and postpartum.
 
 The billing and scheduling staff are wonderful, appointments work seamlessly in person or virtually, and Whitney has become my favorite part of my daughter's care team. My whole family knows and loves her. Ten out of ten, cannot recommend her enough.
+
+Details Emily added on 2026-10-25 for the story: the visits were in Astoria; they stayed with Whitney until weaning, past a year; Whitney also helped with newborn weight gain, establishing and managing supply, and a weaning plan.

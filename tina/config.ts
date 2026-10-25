@@ -104,7 +104,7 @@ export default defineConfig({
             name: 'tag',
             label: 'Topic',
             description: 'Pick the closest topic. This is what the filter buttons use.',
-            options: ['Tongue tie', 'Milk supply', 'Latch + pain', 'Returning to work', 'Bottle feeding', 'Community'],
+            options: ['New parents', 'Tongue tie', 'Milk supply', 'Latch + pain', 'Returning to work', 'Bottle feeding', 'Community'],
             required: true,
           },
           { type: 'string', name: 'place', label: 'City', options: ['Portland', 'Astoria'], required: true },
