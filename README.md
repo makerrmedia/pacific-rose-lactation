@@ -123,8 +123,8 @@ pacificroselactation.com.
 
 ## Before launch
 
-- [ ] Save Whitney's photo into `public/images/` and point `portraitPhoto` in `site.json` at it. It currently loads
-      from the Squarespace image host and will break when that account is closed.
+- [x] Save Whitney's photo into `public/images/` and point `portraitPhoto` in `site.json` at it. It used to load
+      from the Squarespace image host, which would break when that account closes.
 - [ ] Replace the affiliation logos with official files or written permission to use them.
 - [ ] Confirm the Hedon and Gotham web font license, or keep Belleza and Montserrat (both free, self-hosted).
 - [ ] Replace placeholder testimonials and sample stories with real ones (written permission first).
