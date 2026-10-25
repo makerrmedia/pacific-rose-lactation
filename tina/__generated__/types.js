@@ -16,7 +16,6 @@ export const StoryPartsFragmentDoc = gql`
   worked
   now
   serviceLabel
-  serviceHref
   draft
   sample
   seoTitle
@@ -621,7 +620,7 @@ const generateRequester = (client) => {
 export const ExperimentalGetTinaClient = () => getSdk(
   generateRequester(
     createClient({
-      url: "https://content.tinajs.io/4.0/content/dummy-id/github/main",
+      url: "http://localhost:4001/graphql",
       queries
     })
   )

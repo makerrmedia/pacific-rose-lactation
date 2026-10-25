@@ -8,7 +8,6 @@ fragment StoryParts on Story {
   worked
   now
   serviceLabel
-  serviceHref
   draft
   sample
   seoTitle

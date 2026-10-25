@@ -13,7 +13,6 @@ const stories = defineCollection({
     worked: z.string(),
     now: z.string(),
     serviceLabel: z.string(),
-    serviceHref: z.string().default('/services'),
     seoTitle: z.string().optional(),
     metaDescription: z.string().optional(),
     sample: z.boolean().default(false),

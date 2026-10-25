@@ -1,4 +1,5 @@
 import { defineConfig } from 'tinacms';
+import servicesData from '../src/data/services.json';
 
 // Branch the dashboard edits. Hosts set one of these automatically.
 const branch =
@@ -31,6 +32,9 @@ const yesNo = (name: string, label: string, description?: string) => ({
   label,
   description,
 });
+
+// Related-service choice that links to the Bloom Circle page instead of Services.
+const BLOOM_SERVICE = 'Join Bloom Circle';
 
 const isoDate = (value: unknown) => {
   const ok = (v: unknown) => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v.trim());
@@ -77,8 +81,7 @@ export default defineConfig({
           },
           defaultItem: () => ({
             place: 'Portland',
-            color: 1,
-            serviceHref: '/services',
+            color: '1',
             sample: false,
             draft: true,
             order: 100,
@@ -99,15 +102,13 @@ export default defineConfig({
           longText('going', 'What was going on', "The parent's words. 3 to 5 sentences. Do not include quotation marks."),
           longText('worked', 'What we worked on', "The parent's words. 3 to 5 sentences."),
           longText('now', 'How it feels now', "The parent's words. 3 to 5 sentences."),
-          text('serviceLabel', 'Related service', 'For example: Tongue tie assessment'),
           {
             type: 'string',
-            name: 'serviceHref',
-            label: 'Related service link',
-            options: [
-              { value: '/services', label: 'Services page' },
-              { value: '/bloom-circle', label: 'Bloom Circle page' },
-            ],
+            name: 'serviceLabel',
+            label: 'Related service',
+            description: 'Shown in a box at the end of the story with a "Learn more" button. The button goes to the right page automatically.',
+            options: [...servicesData.services.map((x) => x.title), BLOOM_SERVICE],
+            required: true,
           },
           yesNo(
             'draft',
@@ -121,8 +122,26 @@ export default defineConfig({
           ),
           text('seoTitle', 'Google title (optional)', 'Leave blank to use the headline.'),
           longText('metaDescription', 'Google description (optional)', 'One sentence for search results.'),
-          { type: 'number', name: 'color', label: 'Card color (1 to 6)' },
-          { type: 'number', name: 'order', label: 'Sort order', description: 'Lower numbers appear first.' },
+          {
+            type: 'string',
+            name: 'color',
+            label: 'Card color',
+            description: 'Background color of this story on the Stories page.',
+            options: [
+              { value: '1', label: 'Petal pink' },
+              { value: '2', label: 'Blue-grey' },
+              { value: '3', label: 'Sage' },
+              { value: '4', label: 'Dusty blush' },
+              { value: '5', label: 'Light blue-grey' },
+              { value: '6', label: 'Light sage' },
+            ],
+          },
+          {
+            type: 'number',
+            name: 'order',
+            label: 'Position on the Stories page',
+            description: '1 = top of the page. Lower numbers appear first.',
+          },
         ],
       },
 

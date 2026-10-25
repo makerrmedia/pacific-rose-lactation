@@ -116,13 +116,12 @@ type Story implements Node & Document {
   going: String
   worked: String
   now: String
-  serviceLabel: String
-  serviceHref: String
+  serviceLabel: String!
   draft: Boolean
   sample: Boolean
   seoTitle: String
   metaDescription: String
-  color: Float
+  color: String
   order: Float
   id: ID!
   _sys: SystemInfo!
@@ -160,12 +159,11 @@ input StoryFilter {
   worked: StringFilter
   now: StringFilter
   serviceLabel: StringFilter
-  serviceHref: StringFilter
   draft: BooleanFilter
   sample: BooleanFilter
   seoTitle: StringFilter
   metaDescription: StringFilter
-  color: NumberFilter
+  color: StringFilter
   order: NumberFilter
 }
 
@@ -587,12 +585,11 @@ input StoryMutation {
   worked: String
   now: String
   serviceLabel: String
-  serviceHref: String
   draft: Boolean
   sample: Boolean
   seoTitle: String
   metaDescription: String
-  color: Float
+  color: String
   order: Float
 }
 

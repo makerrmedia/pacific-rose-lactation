@@ -284,13 +284,12 @@ export type Story = Node & Document & {
   going?: Maybe<Scalars['String']['output']>;
   worked?: Maybe<Scalars['String']['output']>;
   now?: Maybe<Scalars['String']['output']>;
-  serviceLabel?: Maybe<Scalars['String']['output']>;
-  serviceHref?: Maybe<Scalars['String']['output']>;
+  serviceLabel: Scalars['String']['output'];
   draft?: Maybe<Scalars['Boolean']['output']>;
   sample?: Maybe<Scalars['Boolean']['output']>;
   seoTitle?: Maybe<Scalars['String']['output']>;
   metaDescription?: Maybe<Scalars['String']['output']>;
-  color?: Maybe<Scalars['Float']['output']>;
+  color?: Maybe<Scalars['String']['output']>;
   order?: Maybe<Scalars['Float']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -328,12 +327,11 @@ export type StoryFilter = {
   worked?: InputMaybe<StringFilter>;
   now?: InputMaybe<StringFilter>;
   serviceLabel?: InputMaybe<StringFilter>;
-  serviceHref?: InputMaybe<StringFilter>;
   draft?: InputMaybe<BooleanFilter>;
   sample?: InputMaybe<BooleanFilter>;
   seoTitle?: InputMaybe<StringFilter>;
   metaDescription?: InputMaybe<StringFilter>;
-  color?: InputMaybe<NumberFilter>;
+  color?: InputMaybe<StringFilter>;
   order?: InputMaybe<NumberFilter>;
 };
 
@@ -906,12 +904,11 @@ export type StoryMutation = {
   worked?: InputMaybe<Scalars['String']['input']>;
   now?: InputMaybe<Scalars['String']['input']>;
   serviceLabel?: InputMaybe<Scalars['String']['input']>;
-  serviceHref?: InputMaybe<Scalars['String']['input']>;
   draft?: InputMaybe<Scalars['Boolean']['input']>;
   sample?: InputMaybe<Scalars['Boolean']['input']>;
   seoTitle?: InputMaybe<Scalars['String']['input']>;
   metaDescription?: InputMaybe<Scalars['String']['input']>;
-  color?: InputMaybe<Scalars['Float']['input']>;
+  color?: InputMaybe<Scalars['String']['input']>;
   order?: InputMaybe<Scalars['Float']['input']>;
 };
 
@@ -1078,12 +1075,11 @@ export type StoryFilter = {
   worked?: StringFilter | null | undefined;
   now?: StringFilter | null | undefined;
   serviceLabel?: StringFilter | null | undefined;
-  serviceHref?: StringFilter | null | undefined;
   draft?: BooleanFilter | null | undefined;
   sample?: BooleanFilter | null | undefined;
   seoTitle?: StringFilter | null | undefined;
   metaDescription?: StringFilter | null | undefined;
-  color?: NumberFilter | null | undefined;
+  color?: StringFilter | null | undefined;
   order?: NumberFilter | null | undefined;
 };
 
@@ -1226,7 +1222,7 @@ export type SiteFilter = {
   reminderFormEndpoint?: StringFilter | null | undefined;
 };
 
-export type StoryPartsFragment = { __typename: 'Story', title: string, tag: string, place: string, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string | null, serviceHref: string | null, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: number | null, order: number | null };
+export type StoryPartsFragment = { __typename: 'Story', title: string, tag: string, place: string, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: string | null, order: number | null };
 
 export type BloomPartsFragment = { __typename: 'Bloom', venue: string | null, venueNote: string | null, street: string | null, cityLine: string | null, mapsUrl: string | null, topics: Array<string | null> | null, scheduleLabel: string | null, timeLabel: string | null, cancelledDates: Array<{ __typename: 'BloomCancelledDates', date: string | null, note: string | null } | null> | null, extraDates: Array<{ __typename: 'BloomExtraDates', date: string | null, note: string | null } | null> | null };
 
@@ -1245,7 +1241,7 @@ export type StoryQueryVariables = Exact<{
 }>;
 
 
-export type StoryQuery = { story: { __typename: 'Story', id: string, title: string, tag: string, place: string, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string | null, serviceHref: string | null, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: number | null, order: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type StoryQuery = { story: { __typename: 'Story', id: string, title: string, tag: string, place: string, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: string | null, order: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type StoryConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1257,7 +1253,7 @@ export type StoryConnectionQueryVariables = Exact<{
 }>;
 
 
-export type StoryConnectionQuery = { storyConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Story', id: string, title: string, tag: string, place: string, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string | null, serviceHref: string | null, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: number | null, order: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type StoryConnectionQuery = { storyConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Story', id: string, title: string, tag: string, place: string, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: string | null, order: number | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type BloomQueryVariables = Exact<{
   relativePath: string;
@@ -1384,7 +1380,6 @@ export const StoryPartsFragmentDoc = gql`
   worked
   now
   serviceLabel
-  serviceHref
   draft
   sample
   seoTitle
@@ -2015,7 +2010,7 @@ export const ExperimentalGetTinaClient = () =>
   getSdk(
     generateRequester(
       createClient({
-        url: "https://content.tinajs.io/4.0/content/dummy-id/github/main",
+        url: "http://localhost:4001/graphql",
         queries,
       })
     )

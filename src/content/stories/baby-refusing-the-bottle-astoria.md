@@ -7,12 +7,11 @@ going: 'Our baby wouldn’t take a bottle from anyone, and I was about to go bac
 worked: 'At the Astoria office, Whitney watched how we were offering the bottle and showed us paced feeding and a few small changes. She was also kind about the fact that there is no single right way to feed a baby.'
 now: We left with a plan for the next week and a lot less pressure. Having judgment-free support made all the difference.
 serviceLabel: Bottle feeding support
-serviceHref: /services
 draft: false
 sample: true
 seoTitle: Baby Won’t Take a Bottle? Bottle Feeding Support in Astoria | Pacific Rose Lactation
 metaDescription: An Astoria parent shares how paced feeding and gentle support helped with bottle refusal.
-color: 5
+color: '5'
 order: 5
 ---
 

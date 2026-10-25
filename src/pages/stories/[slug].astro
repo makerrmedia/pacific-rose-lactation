@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 
 const { entry, prev, next } = Astro.props;
 const s = entry.data;
+const serviceHref = s.serviceLabel === 'Join Bloom Circle' ? '/bloom-circle' : '/services';
 ---
 <Layout title={s.seoTitle ?? s.title} description={s.metaDescription} noindex={s.sample}>
   <main id="main">
@@ -37,7 +38,7 @@ const s = entry.data;
             <div class="box">
               <small>Related service</small>
               <h3>{s.serviceLabel}</h3>
-              <a class="btn solid" href={s.serviceHref}>Learn more</a>
+              <a class="btn solid" href={serviceHref}>Learn more</a>
               <div style="height:10px"></div>
               <a class="btn ghost" href="/services#book">Book a consultation</a>
             </div>

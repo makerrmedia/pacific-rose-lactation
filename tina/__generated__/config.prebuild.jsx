@@ -1,5 +1,177 @@
 // tina/config.ts
 import { defineConfig } from "tinacms";
+
+// src/data/services.json
+var services_default = {
+  cashRate: "$200",
+  insurance: [
+    "All major health plans",
+    "Tricare",
+    "OHP"
+  ],
+  pills: [
+    "$200 cash rate",
+    "Tricare + OHP accepted",
+    "Portland home visits",
+    "Astoria office"
+  ],
+  also: [
+    "NICU to home transitions",
+    "Preventative postpartum care",
+    "Returning to work"
+  ],
+  services: [
+    {
+      num: "01",
+      color: "a",
+      title: "Lactation support session",
+      shortTitle: "Lactation support session",
+      homeBlurb: "Latch, pain, supply, pumping, mastitis, weight gain, and more.",
+      homeMeta: "60 to 90 minutes",
+      subtitle: "1 to 1 consultation \xB7 60 to 90 minutes",
+      open: true,
+      left: {
+        paragraphs: [
+          {
+            text: "Develop strategies for overcoming breast and chestfeeding issues, with an expert in your corner."
+          },
+          {
+            text: "Includes support with galactagogues, inducing lactation in non-gestational parents, and healing nipple damage or recurrent mastitis."
+          }
+        ],
+        list: {
+          heading: "Breast pump guidance",
+          items: [
+            "Pump types and how they differ",
+            "Breast sizing for the right flange fit",
+            "Planning when and where to pump, and returning to work"
+          ]
+        }
+      },
+      right: {
+        heading: "Common issues",
+        twoCol: true,
+        items: [
+          "Difficulty latching",
+          "Nipple damage or pain",
+          "Tongue tie",
+          "Nipple shields",
+          "Over or under supply",
+          "Mastitis, plugged ducts, thrush",
+          "Pumping",
+          "Reducing triple feeding",
+          "Breast aversion",
+          "Flat or inverted nipples",
+          "Slow weight gain",
+          "Unsettled at the breast",
+          "Falling asleep while feeding"
+        ]
+      }
+    },
+    {
+      num: "02",
+      color: "b",
+      title: "Bottle feeding support",
+      shortTitle: "Bottle feeding support",
+      homeBlurb: "Paced feeding, formula questions, mixed feeding, gas, and colic.",
+      homeMeta: "60 to 90 minutes",
+      subtitle: "1 to 1 session \xB7 60 to 90 minutes",
+      open: false,
+      left: {
+        paragraphs: [
+          {
+            text: "A session with an infant feeding expert to work through bottle feeding challenges, without judgment, whatever your feeding goals are."
+          }
+        ]
+      },
+      right: {
+        heading: "Common issues",
+        twoCol: true,
+        items: [
+          "Bottle aversion",
+          "Gas, wind, and colic",
+          "Paced bottle feeding",
+          "Choosing a formula",
+          "Choosing a bottle",
+          "Safe formula preparation",
+          "Mixed feeding",
+          "Reintroducing the breast",
+          "Pumping and expressing",
+          "Cow\u2019s milk sensitivity",
+          "Tongue tie"
+        ]
+      }
+    },
+    {
+      num: "03",
+      color: "c",
+      title: "Prenatal breastfeeding master class",
+      shortTitle: "Prenatal master class",
+      homeBlurb: "A two part, in-home education series before baby arrives.",
+      homeMeta: "2 \xD7 60 minutes",
+      subtitle: "2 part in-home education \xB7 2 \xD7 60 minutes",
+      open: false,
+      left: {
+        paragraphs: [
+          {
+            text: "Learn what you need to know about lactation and infant feeding before your baby arrives. Each course is customized to your own goals, fears, and previous experiences."
+          },
+          {
+            text: "Sessions include a personalized risk assessment and medical history review, so we can plan around anything that might affect your feeding journey."
+          }
+        ]
+      },
+      right: {
+        heading: "Topics",
+        twoCol: true,
+        items: [
+          "How the body makes milk",
+          "Building a strong supply",
+          "Attachment + positioning",
+          "Feeding cues",
+          "Is baby getting enough?",
+          "Normal newborn behavior",
+          "The 4th trimester",
+          "Common early pitfalls",
+          "Bottles, pumping, formula"
+        ]
+      }
+    },
+    {
+      num: "04",
+      color: "d",
+      title: "Tongue tie assessment + support",
+      shortTitle: "Tongue tie assessment",
+      homeBlurb: "A full oral assessment with an experienced practitioner.",
+      homeMeta: "60 to 90 minutes",
+      subtitle: "1 to 1 assessment \xB7 60 to 90 minutes",
+      open: false,
+      left: {
+        paragraphs: [
+          {
+            text: "An assessment with an expert Tongue Tie Practitioner. A shortened or restrictive piece of tissue under the tongue can limit mobility and affect feeding, at the breast or the bottle."
+          },
+          {
+            text: "You\u2019ll leave with context, education, referral guidance where needed, and non-surgical alternatives. Documentation for insurance requirements prior to specialist referral is available."
+          }
+        ]
+      },
+      right: {
+        heading: "Your appointment includes",
+        twoCol: false,
+        items: [
+          "Full oral assessment with an evidence-based scoring tool",
+          "Palate assessment",
+          "Weight check",
+          "Full feeding history + assessment",
+          "A bespoke plan for your baby"
+        ]
+      }
+    }
+  ]
+};
+
+// tina/config.ts
 var branch = process.env.GITHUB_BRANCH || process.env.CF_PAGES_BRANCH || process.env.HEAD || process.env.BRANCH || "main";
 var text = (name, label, description, extra = {}) => ({
   type: "string",
@@ -22,6 +194,7 @@ var yesNo = (name, label, description) => ({
   label,
   description
 });
+var BLOOM_SERVICE = "Join Bloom Circle";
 var isoDate = (value) => {
   const ok = (v) => typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v.trim());
   const values = Array.isArray(value) ? value : [value];
@@ -57,8 +230,7 @@ var config_default = defineConfig({
           },
           defaultItem: () => ({
             place: "Portland",
-            color: 1,
-            serviceHref: "/services",
+            color: "1",
             sample: false,
             draft: true,
             order: 100
@@ -79,15 +251,13 @@ var config_default = defineConfig({
           longText("going", "What was going on", "The parent's words. 3 to 5 sentences. Do not include quotation marks."),
           longText("worked", "What we worked on", "The parent's words. 3 to 5 sentences."),
           longText("now", "How it feels now", "The parent's words. 3 to 5 sentences."),
-          text("serviceLabel", "Related service", "For example: Tongue tie assessment"),
           {
             type: "string",
-            name: "serviceHref",
-            label: "Related service link",
-            options: [
-              { value: "/services", label: "Services page" },
-              { value: "/bloom-circle", label: "Bloom Circle page" }
-            ]
+            name: "serviceLabel",
+            label: "Related service",
+            description: 'Shown in a box at the end of the story with a "Learn more" button. The button goes to the right page automatically.',
+            options: [...services_default.services.map((x) => x.title), BLOOM_SERVICE],
+            required: true
           },
           yesNo(
             "draft",
@@ -101,8 +271,26 @@ var config_default = defineConfig({
           ),
           text("seoTitle", "Google title (optional)", "Leave blank to use the headline."),
           longText("metaDescription", "Google description (optional)", "One sentence for search results."),
-          { type: "number", name: "color", label: "Card color (1 to 6)" },
-          { type: "number", name: "order", label: "Sort order", description: "Lower numbers appear first." }
+          {
+            type: "string",
+            name: "color",
+            label: "Card color",
+            description: "Background color of this story on the Stories page.",
+            options: [
+              { value: "1", label: "Petal pink" },
+              { value: "2", label: "Blue-grey" },
+              { value: "3", label: "Sage" },
+              { value: "4", label: "Dusty blush" },
+              { value: "5", label: "Light blue-grey" },
+              { value: "6", label: "Light sage" }
+            ]
+          },
+          {
+            type: "number",
+            name: "order",
+            label: "Position on the Stories page",
+            description: "1 = top of the page. Lower numbers appear first."
+          }
         ]
       },
       // ---------------------------------------------------------- Bloom Circle
