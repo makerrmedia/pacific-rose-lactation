@@ -1,1 +1,14 @@
-/work-with-me /services 301
+# Old Squarespace addresses -> new pages (301 = moved permanently).
+# /services, /about and /contact kept the same address, so they need no redirect.
+/home                    /                 301
+/work-with-me            /services         301
+/coaching-appointment    /services#book    301
+/workshop                /services         301
+
+# Squarespace template demo content (recipes, meal plans, blog). Not part of the new site.
+/blog                    /                 301
+/blog/*                  /                 301
+/seasonal-recipes        /                 301
+/seasonal-recipes/*      /                 301
+/meal-plans              /                 301
+/meal-plans/*            /                 301

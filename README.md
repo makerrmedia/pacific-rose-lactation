@@ -129,7 +129,7 @@ pacificroselactation.com.
 - [ ] Confirm the Hedon and Gotham web font license, or keep Belleza and Montserrat (both free, self-hosted).
 - [ ] Replace placeholder testimonials and sample stories with real ones (written permission first).
 - [ ] Set the form endpoints and test both forms.
-- [ ] Add redirects for every old Squarespace address in `public/_redirects`. Only `/work-with-me` is listed.
+- [x] Add redirects for every old Squarespace address in `public/_redirects` (done from the Squarespace sitemap, October 2026).
 - [ ] Point the domain at the new host (change website records only, leave email records alone), then check email.
 - [ ] Add the site to Google Search Console and submit `sitemap-index.xml`.
 
