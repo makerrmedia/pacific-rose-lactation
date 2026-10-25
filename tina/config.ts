@@ -100,7 +100,7 @@ export default defineConfig({
           filename: {
             slugify: (values: Record<string, any>) => storySlug(values?.title),
             description:
-              'The story’s web address: pacificroselactation.com/stories/(this). It fills in from the headline. To change it, click the box before the first save. Short and lowercase, words joined with dashes. Changing it after the story is live breaks shared links, so ask Emily first.',
+              'The story’s web address: pacificroselactation.com/stories/[this]. It fills in from the headline. To change it, click the box before the first save. Short and lowercase, words joined with dashes. Changing it after the story is live breaks shared links.',
           },
           defaultItem: () => ({
             place: 'Portland',

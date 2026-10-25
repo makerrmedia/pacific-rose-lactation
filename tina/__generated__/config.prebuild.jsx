@@ -241,7 +241,7 @@ var config_default = defineConfig({
         ui: {
           filename: {
             slugify: (values) => storySlug(values?.title),
-            description: "The story\u2019s web address: pacificroselactation.com/stories/(this). It fills in from the headline. To change it, click the box before the first save. Short and lowercase, words joined with dashes. Changing it after the story is live breaks shared links, so ask Emily first."
+            description: "The story\u2019s web address: pacificroselactation.com/stories/[this]. It fills in from the headline. To change it, click the box before the first save. Short and lowercase, words joined with dashes. Changing it after the story is live breaks shared links."
           },
           defaultItem: () => ({
             place: "Portland",
