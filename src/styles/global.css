@@ -4,7 +4,7 @@
     --rose-deep:#9a7778; --cascade-deep:#5f6b7a; --fir-deep:#667559;
     --ink:#1c1d1d; --ink-soft:#4a4a4a;
     --display:'Belleza','Optima','Candara',sans-serif;
-    --body:'Montserrat','Gotham','Helvetica Neue',Arial,sans-serif;
+    --body:'Montserrat','Helvetica Neue',Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}

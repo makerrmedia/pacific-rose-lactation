@@ -126,7 +126,7 @@ pacificroselactation.com.
 - [x] Save Whitney's photo into `public/images/` and point `portraitPhoto` in `site.json` at it. It used to load
       from the Squarespace image host, which would break when that account closes.
 - [x] Affiliation logos: confirmed OK to use on the website (October 2026).
-- [ ] Confirm the Hedon and Gotham web font license, or keep Belleza and Montserrat (both free, self-hosted).
+- [x] Fonts: keeping Belleza and Montserrat (both free, self-hosted). No paid font license needed.
 - [ ] Replace placeholder testimonials and sample stories with real ones (written permission first).
 - [ ] Set the form endpoints and test both forms.
 - [x] Add redirects for every old Squarespace address in `public/_redirects` (done from the Squarespace sitemap, October 2026).
