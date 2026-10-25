@@ -8,6 +8,7 @@ import about from '../data/about.json';
 import svc from '../data/services.json';
 import testimonialData from '../data/testimonials.json';
 import tiles from '../data/tiles.json';
+import { serviceHref } from '../lib/services';
 const testimonials = testimonialData.items;
 import { upcoming, nextShort, type BloomConfig } from '../lib/bloom';
 
@@ -57,7 +58,7 @@ const phoneHref = `tel:${site.phone.replace(/\D/g, '')}`;
         </div>
         <div class="svc-grid">
           {svc.services.map((s) => (
-            <a class={`svc c-${s.color}`} href="/services">
+            <a class={`svc c-${s.color}`} href={serviceHref(s.title)}>
               <div class="n">{s.num}</div>
               <h3>{s.shortTitle}</h3>
               <p>{s.homeBlurb}</p>

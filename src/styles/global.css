@@ -56,7 +56,7 @@
   /* hero */
   .hero{padding:72px 0 96px;overflow:hidden}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
-  .hero h1{font-size:clamp(44px,5.6vw,72px);margin-bottom:26px}
+  .hero h1{font-size:clamp(44px,5.6vw,72px);margin-bottom:26px;text-wrap:balance}
   .hero h1 em{font-style:normal;color:var(--rose-deep);white-space:nowrap}
   @media(min-width:700px){.page-hero h1 em{white-space:nowrap}}
   .lede{font-size:18px;color:var(--ink-soft);max-width:480px;margin-bottom:36px;font-weight:300}
@@ -377,6 +377,7 @@
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .sample-tag{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:var(--petal);padding:4px 10px;border-radius:999px;font-weight:600}
 #book{scroll-margin-top:84px}
+details.sv{scroll-margin-top:100px}
 
 /* ---- mobile polish ---- */
 /* No single word left alone on the last line of body text (titles are left as they are). */
@@ -395,13 +396,21 @@ footer .brand-text span:first-child{white-space:nowrap}
   footer .brand-text span:last-child{font-size:7px;letter-spacing:.42em;margin-top:5px}
   footer .f-brand p{font-size:12.5px}
   .bloom-art{max-width:230px}
-  /* tablet widths: photos stack under the text, so keep them from filling the whole window */
-  .arch,.portrait{max-width:420px;width:100%;margin-left:auto;margin-right:auto}
   .bloom-art .ring2{inset:-14px}
   .ig{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ig div{font-size:19px;padding:18px}
 }
-@media(max-width:560px){
+/* tablets and narrow desktop windows: hero photo and portrait stay beside the text */
+@media(min-width:601px) and (max-width:900px){
+  .hero-grid{grid-template-columns:1.05fr .95fr;gap:40px}
+  .about-grid{grid-template-columns:.9fr 1.1fr;gap:44px}
+}
+/* phones: photos stack under the text; keep them from getting too big on larger phones */
+@media(max-width:600px){
+  .arch,.portrait{max-width:420px;width:100%;margin-left:auto;margin-right:auto}
+}
+/* narrow text columns (phones, and the hero text column on tablets) */
+@media(max-width:900px){
   .m-br{display:inline}
   .eyebrow .sep{display:none}
   .eyebrow .nw{display:block;margin-top:8px}
@@ -432,3 +441,8 @@ footer .brand-text span:first-child{white-space:nowrap}
 .cinfo a{overflow-wrap:anywhere}
 .contact-grid>*{min-width:0}
 .about{overflow-x:clip}
+/* booking cards: buttons line up along the bottom, on one line */
+.vcard{display:flex;flex-direction:column;align-items:flex-start}
+.vcard .btn{margin-top:auto;white-space:nowrap}
+@media(max-width:900px){.vcard{padding:30px 28px}}
+@media(max-width:360px){.vcard .btn{white-space:normal;text-align:center}}

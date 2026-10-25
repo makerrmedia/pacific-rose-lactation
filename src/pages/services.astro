@@ -4,6 +4,7 @@ import CtaBand from '../components/CtaBand.astro';
 import site from '../data/site.json';
 import svc from '../data/services.json';
 import faqData from '../data/faq.json';
+import { serviceId } from '../lib/services';
 const faq = faqData.items;
 
 const phoneHref = `tel:${site.astoriaPhone.replace(/\D/g, '')}`;
@@ -34,7 +35,7 @@ const faqLd = {
     <section style="padding-top:20px">
       <div class="wrap acc">
         {svc.services.map((s) => (
-          <details class="sv" open={s.open}>
+          <details class="sv" id={serviceId(s.title)} open={s.open}>
             <summary>
               <span class={`num c-${s.color}`} style={s.color === 'd' ? 'border:1.5px solid var(--rose)' : undefined}>{s.num}</span>
               <div><h3>{s.title}</h3><div class="sub">{s.subtitle}</div></div>
@@ -119,4 +120,16 @@ const faqLd = {
       secondary={{ label: 'Book a consultation', href: '#book' }}
     />
   </main>
+  <script>
+    // Links like /services#tongue-tie-assessment-support open that service and scroll to it.
+    const openFromHash = () => {
+      const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (target instanceof HTMLDetailsElement) {
+        document.querySelectorAll('details.sv').forEach((d) => (d.open = d === target));
+        target.scrollIntoView({ block: 'start' });
+      }
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+  </script>
 </Layout>
