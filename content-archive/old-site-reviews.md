@@ -1,4 +1,4 @@
-# Reviews from the old Squarespace site
+# Reviews of Whitney (old Squarespace site and others)
 
 Copied word for word from https://www.pacificroselactation.com/about on 2026-10-25, before the Squarespace site is closed.
 Spelling and punctuation are exactly as they appeared. This folder is not published on the website.
@@ -123,3 +123,15 @@ Our issues have been sorted and we are so grateful to continue our feeding journ
 ### Maggie
 
 It was a very nice experience, highly recommend.
+
+## Other reviews
+
+### Emily (left at Wildflower Lactation, shared 2026-10-25 with permission to use for a parent story)
+
+If you're pregnant or newly postpartum and on the fence about a lactation consultant, let Whitney Tiller and Wildflower Lactation be the reason you stop hesitating. Seven months in, we are still actively working with her, and I cannot imagine this season of motherhood without her.
+
+As a first-time mom, I came in with a thousand questions. Whitney has never once made me feel silly for asking any of them. She meets you exactly where you are with no judgment on feeding method, whether that's breastfeeding, pumping, formula, or some combination.
+
+What I didn't expect was how far beyond those first few weeks this relationship would go. She's been with us through returning to work, introducing bottles, starting solids, and working through digestion issues and spit up. She's genuinely invested, celebrates every win, and always finds a solution that fits our life. Our insurance covers her services, but I would pay out of pocket without blinking... this has been the best support we've received, pre and postpartum.
+
+The billing and scheduling staff are wonderful, appointments work seamlessly in person or virtually, and Whitney has become my favorite part of my daughter's care team. My whole family knows and loves her. Ten out of ten, cannot recommend her enough.
