@@ -1,0 +1,19 @@
+---
+import affiliations from '../data/affiliations.json';
+---
+<div class="affil">
+  <div class="wrap">
+    <span class="eyebrow">Memberships + affiliations</span>
+    <div class="affil-row">
+      {affiliations.map((a) => (
+        <div
+          class="affil-logo"
+          role="img"
+          aria-label={a.name}
+          title={a.name}
+          style={`-webkit-mask-image:url(${a.file});mask-image:url(${a.file})`}
+        />
+      ))}
+    </div>
+  </div>
+</div>

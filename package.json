@@ -1,0 +1,21 @@
+{
+  "name": "pacific-rose-lactation",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tinacms dev -c \"astro dev\"",
+    "dev:site": "astro dev",
+    "build": "tinacms build && astro build",
+    "build:local": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource/belleza": "^5.3.0",
+    "@fontsource/montserrat": "^5.3.0",
+    "@tinacms/cli": "^4.0.3",
+    "astro": "^5.18.2",
+    "tinacms": "^3.15.0"
+  }
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "IBCLC",
+    "file": "/affiliations/ibclc.png"
+  },
+  {
+    "name": "Oregon Washington Lactation Association",
+    "file": "/affiliations/owla.png"
+  },
+  {
+    "name": "Nursing & Midwifery Council",
+    "file": "/affiliations/nmc.png"
+  },
+  {
+    "name": "Lactation Consultants of Great Britain",
+    "file": "/affiliations/lcgb.png"
+  },
+  {
+    "name": "Linn-Benton-Lincoln Breastfeeding Coalition",
+    "file": "/affiliations/lbl.png"
+  },
+  {
+    "name": "ATP member",
+    "file": "/affiliations/atp.png"
+  },
+  {
+    "name": "Neurodiversity affirming",
+    "file": "/affiliations/neuro.png"
+  },
+  {
+    "name": "Inclusive Practice",
+    "file": "/affiliations/inclusive.png"
+  }
+]

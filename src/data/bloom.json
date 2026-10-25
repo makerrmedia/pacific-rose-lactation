@@ -1,0 +1,27 @@
+{
+  "weekday": 3,
+  "weeksOfMonth": [
+    1,
+    3
+  ],
+  "startHour": 10,
+  "endHour": 12,
+  "timeLabel": "10am to 12pm",
+  "scheduleLabel": "1st + 3rd Wednesdays",
+  "venue": "Taborspace",
+  "venueNote": "Located in Mt Tabor Presbyterian Church",
+  "street": "5441 SE Belmont St",
+  "cityLine": "Portland, OR 97215",
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=5441+SE+Belmont+St+Portland+OR+97215",
+  "cancelledDates": [],
+  "extraDates": [],
+  "topics": [
+    "Starting solids",
+    "Traveling with a nursing baby",
+    "Going back to work",
+    "Breast health",
+    "Pelvic floor",
+    "Baby massage",
+    "Sleep"
+  ]
+}

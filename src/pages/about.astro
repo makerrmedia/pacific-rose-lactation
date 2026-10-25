@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Affiliations from '../components/Affiliations.astro';
+import CtaBand from '../components/CtaBand.astro';
+import site from '../data/site.json';
+import about from '../data/about.json';
+---
+<Layout
+  title="About Whitney Tiller, RN, IBCLC"
+  description="Whitney Tiller is a registered nurse, IBCLC, and former NHS midwife with over 13 years of experience supporting parents and babies in the Pacific Northwest."
+>
+  <main id="main">
+    <section class="about" style="padding-top:80px">
+      <div class="wrap about-grid">
+        <div class="portrait"><div class="ph"><img src={site.portraitPhoto} alt={about.name} /></div></div>
+        <div>
+          <span class="eyebrow">About</span>
+          <h1 style="font-size:clamp(40px,5vw,62px);margin-bottom:10px">Hi, I’m Whitney</h1>
+          <span class="cred">{about.aboutCred}</span>
+          {about.bio.map((p) => <p>{p.text}</p>)}
+          <div class="facts" style="margin-bottom:0">
+            {about.facts.map((f) => (<div><b>{f.big}</b><span>{f.small}</span></div>))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white">
+      <div class="wrap">
+        <div class="head center" style="text-align:center"><span class="eyebrow">My path</span><h2>From the NHS to the Pacific Northwest</h2></div>
+        <div class="timeline">
+          {about.timeline.map((t) => (
+            <div class="tl">
+              <div class="yr">{t.year}</div>
+              <div class="dotc"></div>
+              <div><h3>{t.title}</h3><p>{t.text}</p></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="story">
+          <div class="art"><img src="/images/pacific-rose-icon.png" width="420" height="415" alt="Pacific Rose mark" loading="lazy" /></div>
+          <div>
+            <span class="eyebrow">The name + the mark</span>
+            <h2>Why “Pacific Rose”?</h2>
+            <p>Pacific Rose is a play on my two identities: the Pacific Northwest I now call home, and the English rose that follows me from my years as a midwife in the UK.</p>
+            <p>The mark carries both. A five petal Tudor rose sits at the center, framed by a mountain, a Douglas fir, and the coastline.</p>
+            <div class="legend">
+              <span><i style="background:var(--rose)"></i>Rose</span>
+              <span><i style="background:var(--cascade)"></i>Mountain + ocean</span>
+              <span><i style="background:var(--fir)"></i>Douglas fir</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Affiliations />
+
+    <CtaBand
+      heading="Let’s work together"
+      text="Compassionate care and expert advice, in your home or at the Astoria office."
+      primary={{ label: 'Book a consultation', href: '/services#book' }}
+    />
+  </main>
+</Layout>

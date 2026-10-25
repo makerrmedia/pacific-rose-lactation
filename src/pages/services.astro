@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import site from '../data/site.json';
+import svc from '../data/services.json';
+import faqData from '../data/faq.json';
+const faq = faqData.items;
+
+const phoneHref = `tel:${site.astoriaPhone.replace(/\D/g, '')}`;
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<Layout
+  title="Lactation Services + Rates"
+  description="Lactation support, bottle feeding support, prenatal breastfeeding classes, and tongue tie assessments in Portland and Astoria. Tricare and OHP accepted."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  <main id="main">
+    <div class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">Services + rates</span>
+        <h1>Feeding support, <em>tailored to you</em></h1>
+        <p>Tap a service to see what we can work through together. Every session ends with a clear plan.</p>
+        <div class="rate-pills">
+          {svc.pills.map((p) => <span>{p}</span>)}
+          <a href="#book">See rates + booking ↓</a>
+        </div>
+      </div>
+    </div>
+
+    <section style="padding-top:20px">
+      <div class="wrap acc">
+        {svc.services.map((s) => (
+          <details class="sv" open={s.open}>
+            <summary>
+              <span class={`num c-${s.color}`} style={s.color === 'd' ? 'border:1.5px solid var(--rose)' : undefined}>{s.num}</span>
+              <div><h3>{s.title}</h3><div class="sub">{s.subtitle}</div></div>
+              <span class="plus"></span>
+            </summary>
+            <div class="sv-body">
+              <div>
+                {s.left.paragraphs.map((p) => <p>{p.text}</p>)}
+                {s.left.list?.heading && (
+                  <Fragment>
+                    <h4>{s.left.list.heading}</h4>
+                    <ul class="ticks">{(s.left.list.items ?? []).map((i) => <li>{i}</li>)}</ul>
+                  </Fragment>
+                )}
+              </div>
+              <div>
+                <h4>{s.right.heading}</h4>
+                <ul class={s.right.twoCol ? 'ticks two' : 'ticks'}>{s.right.items.map((i) => <li>{i}</li>)}</ul>
+              </div>
+            </div>
+          </details>
+        ))}
+        <div class="also">
+          <span class="l">Also supporting</span>
+          {svc.also.map((a) => <span class="chip">{a}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <section id="book" class="bg-white">
+      <div class="wrap">
+        <div class="head center" style="text-align:center">
+          <span class="eyebrow">Rates + booking</span>
+          <h2>Book your consultation</h2>
+          <p>Personalized feeding support, evidence-based strategies, and preventative care that follows you through your whole feeding journey.</p>
+        </div>
+        <div class="visit-grid">
+          <div class="vcard">
+            <small>Portland area</small><h3>Home visits</h3>
+            <p>Care in the comfort of your own home, so you can feed in the space that feels easiest.</p>
+            <a class="btn solid" href={site.bookingUrl} target="_blank" rel="noopener">Book a home visit</a>
+          </div>
+          <div class="vcard">
+            <small>Astoria</small><h3>Office visits</h3>
+            <p>To book an Astoria office visit, please contact the front desk.</p>
+            <a class="btn ghost" href={phoneHref}>{site.astoriaPhone}</a>
+          </div>
+          <div class="vcard hl">
+            <small>Payment + insurance</small>
+            <div class="price">{svc.cashRate}</div>
+            <p>Cash rate</p>
+            <div class="ins">{svc.insurance.map((i) => <span>{i}</span>)}</div>
+            <a class="btn rose" href="/contact">Ask about insurance</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="head center" style="text-align:center"><span class="eyebrow">Questions</span><h2>Good to know</h2></div>
+        <div class="faq">
+          {faq.map((f) => (
+            <details class="q">
+              <summary>{f.q}</summary>
+              <p>
+                {f.a}
+                {f.linkHref && (
+                  <Fragment> <a href={f.linkHref} style="color:var(--rose-deep);border-bottom:1px solid var(--rose-deep)">{f.linkLabel}</a>.</Fragment>
+                )}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      heading="Not sure which session fits?"
+      text="Tell me what’s going on and we’ll find the right starting point together."
+      primary={{ label: 'Ask a question', href: '/contact' }}
+      secondary={{ label: 'Book a consultation', href: '#book' }}
+    />
+  </main>
+</Layout>

@@ -1,0 +1,69 @@
+{
+  "name": "Whitney Tiller",
+  "homeCred": "RN · IBCLC · DEM · BSM · RM(UK)",
+  "aboutCred": "RN · IBCLC · DEM · BSM · RM(UK) · Tongue Tie Practitioner",
+  "homeBlurb": "From the UK’s NHS to the Pacific Northwest, I’ve spent over a decade supporting parents and babies. To me this is so much more than a job, it’s a calling.",
+  "bio": [
+    {
+      "text": "I have been working in birth, supporting mothers, parents, and babies for over 13 years. I have such a deep passion and respect for birth in all its forms, and that passion shines through in what I do."
+    },
+    {
+      "text": "I want nothing more than to support you and provide the strategies you need to reach your infant feeding goals, whatever they may be."
+    }
+  ],
+  "homeFacts": [
+    {
+      "big": "400+",
+      "small": "infants treated each year for tethered oral tissue"
+    },
+    {
+      "big": "UNICEF",
+      "small": "Baby Friendly accreditation supported"
+    },
+    {
+      "big": "2023",
+      "small": "Bringing global experience to the PNW"
+    }
+  ],
+  "facts": [
+    {
+      "big": "400+",
+      "small": "infants treated each year for tethered oral tissue"
+    },
+    {
+      "big": "13+",
+      "small": "years supporting families"
+    },
+    {
+      "big": "3",
+      "small": "PNW partners: Andaluz, Astoria birth centers, Wildflower"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "NHS",
+      "title": "Breastfeeding Peer Support Counselor",
+      "text": "My journey in infant feeding began in the UK’s National Health Service."
+    },
+    {
+      "year": "2014",
+      "title": "Registered Midwife",
+      "text": "Trained as a midwife, then became a Tongue Tie Practitioner treating 400 to 500 infants a year."
+    },
+    {
+      "year": "2021",
+      "title": "Infant Feeding Specialist Midwife",
+      "text": "Trained staff, launched skin-to-skin initiatives, and helped my trust earn UNICEF Baby Friendly accreditation."
+    },
+    {
+      "year": "2022",
+      "title": "IBCLC certification",
+      "text": "Completed my International Board Certified Lactation Consultant credential."
+    },
+    {
+      "year": "2023",
+      "title": "Pacific Northwest",
+      "text": "Relocated and began supporting families through the Andaluz and Astoria birth centers and Wildflower Lactation."
+    }
+  ]
+}

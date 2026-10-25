@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "quote": "Add a real client testimonial here about feeling supported and heard.",
+      "attribution": "First name, Portland",
+      "placeholder": true
+    },
+    {
+      "quote": "Add a testimonial about a feeding challenge that felt resolved.",
+      "attribution": "First name, Astoria",
+      "placeholder": true
+    },
+    {
+      "quote": "Add a Bloom Circle quote about finding community.",
+      "attribution": "First name, Bloom Circle",
+      "placeholder": true
+    }
+  ]
+}

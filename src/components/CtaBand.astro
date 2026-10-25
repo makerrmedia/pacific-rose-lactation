@@ -1,0 +1,17 @@
+---
+interface Props {
+  heading: string;
+  text?: string;
+  primary: { label: string; href: string };
+  secondary?: { label: string; href: string };
+}
+const { heading, text, primary, secondary } = Astro.props;
+---
+<div class="cta-band">
+  <div class="wrap">
+    <h2>{heading}</h2>
+    {text && <p>{text}</p>}
+    <a class="btn solid" href={primary.href}>{primary.label}</a>
+    {secondary && <Fragment>&nbsp; <a class="btn ghost" href={secondary.href}>{secondary.label}</a></Fragment>}
+  </div>
+</div>

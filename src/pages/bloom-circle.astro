@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
+import bloom from '../data/bloom.json';
+import { upcoming, MONL, weekdayName, type BloomConfig } from '../lib/bloom';
+
+const cfg = bloom as unknown as BloomConfig;
+const sessions = upcoming(cfg, 4);
+---
+<Layout
+  title="Bloom Circle: Free Breastfeeding Support Group in Portland"
+  description="Bloom Circle is a free breastfeeding support group meeting the 1st and 3rd Wednesday of each month at Taborspace in Portland. Snacks, mocktails, and community."
+>
+  <main id="main">
+    <div class="bloom-band" style="padding:88px 0">
+      <div class="wrap bloom-grid">
+        <div>
+          <span class="eyebrow">Free community support group</span>
+          <h1 style="font-size:clamp(46px,6vw,76px);margin-bottom:18px">Bloom Circle</h1>
+          <p class="sub">Come as you are. Feed, chat, snack, and connect with other moms navigating this season alongside you.</p>
+          <div class="when">
+            <div><small>When</small><b>{bloom.scheduleLabel}</b><span>{bloom.timeLabel}</span></div>
+            <div><small>Cost</small><b>Free to attend</b><span>Donations welcome</span></div>
+          </div>
+          <a class="btn solid" href="#reminders" id="jumpRem">Get reminders</a>
+        </div>
+        <div class="bloom-art"><div class="ring2"></div><div class="ring"></div><img src="/images/pacific-rose-icon.png" width="420" height="415" alt="Pacific Rose mark" /></div>
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">Upcoming gatherings</span>
+          <h2>Save the date</h2>
+          <p>Dates update automatically. Add any session straight to your calendar.</p>
+        </div>
+        <div class="dates" id="dateGrid">
+          {sessions.map((d, i) => (
+            <div class={i === 0 ? 'date first' : 'date'}>
+              <small>{MONL[d.m]}{i === 0 ? ' · Next up' : ''}</small>
+              <b>{d.d}</b>
+              <span>{weekdayName(d)} · {bloom.timeLabel}{d.note ? ` · ${d.note}` : ''}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white">
+      <div class="wrap">
+        <div class="head"><span class="eyebrow">What to expect</span><h2>Part conversation, part community</h2></div>
+        <div class="three">
+          <div class="tile c-a"><div class="n">01</div><h3>Casual chats</h3><p>Some weeks it’s simply conversation, snacks, and mocktails with moms whose babies are around the same age.</p></div>
+          <div class="tile c-b"><div class="n">02</div><h3>Guided topics</h3><p>Other weeks Whitney leads a discussion on perinatal and infant health, so you leave with something useful.</p></div>
+          <div class="tile c-c"><div class="n">03</div><h3>Guest speakers</h3><p>From time to time we welcome pelvic floor experts, baby massage workshops, and sleep coaches.</p></div>
+        </div>
+        <div class="head" style="margin:64px 0 24px"><span class="eyebrow">Past + upcoming topics</span></div>
+        <div class="topics">{bloom.topics.map((t) => <span class="topic">{t}</span>)}</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="map-card">
+          <div class="l">
+            <span class="eyebrow" style="color:var(--petal)">Where we meet</span>
+            <h3>{bloom.venue}</h3>
+            <p>{bloom.venueNote}<br />{bloom.street}, {bloom.cityLine}</p>
+            <a class="btn rose" href={bloom.mapsUrl} target="_blank" rel="noopener">Get directions</a>
+          </div>
+          <div class="r"><div class="pin"><img src="/images/pacific-rose-icon.png" width="420" height="415" alt="" /></div><div class="tag">Mt Tabor, Portland</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reminders" style="padding-top:0">
+      <div class="wrap">
+        <div class="signup">
+          <div><h3>Get Bloom Circle reminders</h3><p>A friendly note before each session, plus the occasional feeding tip. No spam, ever.</p></div>
+          <div>
+            <form class="inline-form" id="remForm" novalidate data-endpoint={site.reminderFormEndpoint} name="reminders" data-netlify="true">
+              <input type="hidden" name="form-name" value="reminders" />
+              <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <input type="email" name="email" id="remEmail" placeholder="you@email.com" aria-label="Email" autocomplete="email" />
+              <button class="btn solid" type="submit">Notify me</button>
+            </form>
+            <div class="field-err" id="remErr" role="alert"></div>
+            <div class="ok" id="remOk">You’re on the list. See you at the next Bloom Circle 🌹</div>
+          </div>
+        </div>
+        <p style="text-align:center;margin-top:28px;font-size:13px;color:var(--ink-soft)">Donations help cover snacks, mocktails, and space rental, and are always optional.</p>
+      </div>
+    </section>
+  </main>
+  <script>import '../scripts/bloom'; import '../scripts/forms';</script>
+</Layout>

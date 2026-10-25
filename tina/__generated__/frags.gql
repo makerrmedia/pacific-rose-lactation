@@ -1,0 +1,143 @@
+fragment StoryParts on Story {
+  __typename
+  title
+  tag
+  place
+  excerpt
+  going
+  worked
+  now
+  serviceLabel
+  serviceHref
+  draft
+  sample
+  seoTitle
+  metaDescription
+  color
+  order
+}
+
+fragment BloomParts on Bloom {
+  __typename
+  cancelledDates {
+    __typename
+    date
+    note
+  }
+  extraDates {
+    __typename
+    date
+    note
+  }
+  venue
+  venueNote
+  street
+  cityLine
+  mapsUrl
+  topics
+  scheduleLabel
+  timeLabel
+}
+
+fragment ServicesParts on Services {
+  __typename
+  cashRate
+  insurance
+  pills
+  also
+  services {
+    __typename
+    num
+    color
+    title
+    shortTitle
+    homeBlurb
+    homeMeta
+    subtitle
+    open
+    left {
+      __typename
+      paragraphs {
+        __typename
+        text
+      }
+      list {
+        __typename
+        heading
+        items
+      }
+    }
+    right {
+      __typename
+      heading
+      twoCol
+      items
+    }
+  }
+}
+
+fragment FaqParts on Faq {
+  __typename
+  items {
+    __typename
+    q
+    a
+    linkLabel
+    linkHref
+  }
+}
+
+fragment AboutParts on About {
+  __typename
+  name
+  homeCred
+  aboutCred
+  homeBlurb
+  bio {
+    __typename
+    text
+  }
+  homeFacts {
+    __typename
+    big
+    small
+  }
+  facts {
+    __typename
+    big
+    small
+  }
+  timeline {
+    __typename
+    year
+    title
+    text
+  }
+}
+
+fragment TestimonialsParts on Testimonials {
+  __typename
+  items {
+    __typename
+    quote
+    attribution
+    placeholder
+  }
+}
+
+fragment SiteParts on Site {
+  __typename
+  phone
+  email
+  astoriaPhone
+  bookingUrl
+  instagramHandle
+  instagramUrl
+  portraitPhoto
+  tagline
+  heroCredit
+  name
+  url
+  contactFormEndpoint
+  reminderFormEndpoint
+}

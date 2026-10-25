@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "q": "How long is a session?",
+      "a": "Lactation, bottle feeding, and tongue tie sessions run 60 to 90 minutes. The prenatal master class is two 60 minute sessions."
+    },
+    {
+      "q": "Do you take insurance?",
+      "a": "Yes, all major health plans are accepted, including Tricare and OHP. The cash rate is $200. Reach out directly with any insurance questions."
+    },
+    {
+      "q": "Where do appointments take place?",
+      "a": "Portland area visits happen in your home. Astoria visits take place at the Astoria office, booked through the front desk."
+    },
+    {
+      "q": "Can you help with bottle feeding or formula?",
+      "a": "Absolutely. Support is judgment free and built around your goals, whatever they may be."
+    },
+    {
+      "q": "What is Bloom Circle?",
+      "a": "A free breastfeeding support group meeting the 1st and 3rd Wednesday of each month, 10am to 12pm at Taborspace in Portland.",
+      "linkLabel": "See upcoming dates",
+      "linkHref": "/bloom-circle"
+    }
+  ]
+}

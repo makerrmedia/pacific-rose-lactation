@@ -1,0 +1,148 @@
+---
+import '@fontsource/belleza/400.css';
+import '@fontsource/montserrat/300.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/400-italic.css';
+import '../styles/global.css';
+import site from '../data/site.json';
+import bloom from '../data/bloom.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+const { title, description, noindex: pageNoindex = false } = Astro.props;
+// Set PUBLIC_NOINDEX=true on the host while the site is a preview, so Google ignores it.
+const noindex = pageNoindex || import.meta.env.PUBLIC_NOINDEX === 'true';
+
+const fullTitle = title ? (title.includes(site.name) ? title : `${title} | ${site.name}`) : site.name;
+const desc =
+  description ??
+  'Judgment-free infant feeding support from an RN and IBCLC in Portland and Astoria, Oregon. Lactation consultations, bottle feeding support, tongue tie assessments, and the free Bloom Circle group.';
+const path = Astro.url.pathname.replace(/\/$/, '') || '';
+const canonical = `${site.url}${path}`;
+const active = (p: string) => (Astro.url.pathname === p || Astro.url.pathname.startsWith(p + '/') ? 'nl active' : 'nl');
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  url: site.url,
+  email: site.email,
+  telephone: site.phone,
+  sameAs: [site.instagramUrl],
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#f0efef" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${site.url}/og-image.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <div class="announce">
+      Bloom Circle<span class="hm">, our free breastfeeding support group,</span> meets the 1st + 3rd Wednesday<span class="hm"> of each month</span> ·
+      <a href="/bloom-circle">See dates</a>
+    </div>
+
+    <nav aria-label="Main">
+      <div class="wrap nav-in">
+        <a class="brand" href="/">
+          <img src="/images/pacific-rose-icon.png" width="52" height="52" alt="Pacific Rose Lactation mark" />
+          <span class="brand-text"><span>Pacific Rose</span><span>Lactation</span></span>
+        </a>
+        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="links"><span></span></button>
+        <div class="links" id="links">
+          <a class={active('/services')} href="/services">Services</a>
+          <a class={active('/bloom-circle')} href="/bloom-circle">Bloom Circle</a>
+          <a class={active('/about')} href="/about">About</a>
+          <a class={active('/stories')} href="/stories">Stories</a>
+          <a class={active('/contact')} href="/contact">Contact</a>
+          <a class="btn solid" href="/services#book">Book a consult</a>
+        </div>
+      </div>
+    </nav>
+
+    <slot />
+
+    <footer>
+      <div class="wrap">
+        <div class="f-grid">
+          <div>
+            <div class="brand">
+              <img src="/images/pacific-rose-icon.png" width="52" height="52" alt="" />
+              <span class="brand-text"><span>Pacific Rose</span><span>Lactation</span></span>
+            </div>
+            <p>Where compassionate care meets expert advice. Serving the Portland metro area and Northern coastal counties.</p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/bloom-circle">Bloom Circle</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/stories">Parent stories</a></li>
+              <li><a href="/services#book">Rates + booking</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li><a href={`tel:${site.phone.replace(/\D/g, '')}`}>{site.phone}</a></li>
+              <li><a href={`mailto:${site.email}`}>Email Whitney</a></li>
+              <li><a href={site.instagramUrl} target="_blank" rel="noopener">{site.instagramHandle}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Bloom Circle</h4>
+            <ul>
+              <li>{bloom.scheduleLabel}</li>
+              <li>{bloom.timeLabel}</li>
+              <li>{bloom.venue}, Portland</li>
+            </ul>
+          </div>
+        </div>
+        <div class="f-bot"><span>© {new Date().getFullYear()} {site.name}</span><span>{site.heroCredit}</span></div>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      const burger = document.getElementById('burger');
+      const links = document.getElementById('links');
+      burger?.addEventListener('click', () => {
+        const open = burger.classList.toggle('open');
+        links?.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', String(open));
+      });
+      links?.querySelectorAll('a').forEach((a) =>
+        a.addEventListener('click', () => {
+          burger?.classList.remove('open');
+          links.classList.remove('open');
+          burger?.setAttribute('aria-expanded', 'false');
+        })
+      );
+    </script>
+  </body>
+</html>

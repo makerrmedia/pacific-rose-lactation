@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { getCollection } from 'astro:content';
+
+const all = (await getCollection('stories')).filter((s) => !s.data.draft).sort((a, b) => a.data.order - b.data.order);
+const tags = ['All', ...Array.from(new Set(all.map((s) => s.data.tag)))];
+const hasSamples = all.some((s) => s.data.sample);
+---
+<Layout
+  title="Parent Stories"
+  description="Real feeding journeys in parents’ own words. Browse stories by challenge, from tongue tie and latch pain to returning to work and finding community."
+  noindex={hasSamples && all.every((s) => s.data.sample)}
+>
+  <main id="main">
+    <div class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">Parent stories</span>
+        <h1>Real feeding journeys, <em>in parents’ words</em></h1>
+        <p>Browse stories by challenge to see how other families worked through situations like yours.</p>
+      </div>
+    </div>
+    <section style="padding-top:10px">
+      <div class="wrap">
+        <div class="chips" id="storyChips" role="group" aria-label="Filter stories">
+          {tags.map((t, i) => <button class={i === 0 ? 'chip-btn on' : 'chip-btn'} type="button" data-tag={t}>{t}</button>)}
+        </div>
+        <div class="story-grid" id="storyGrid">
+          {all.map((s) => (
+            <a class={`scard sc${s.data.color}`} href={`/stories/${s.id}`} data-tag={s.data.tag}>
+              <span class="tg">{s.data.tag}</span>
+              {s.data.sample && <span class="sample-tag" style="margin-bottom:10px">Sample story</span>}
+              <h3>{s.data.title}</h3>
+              <p>{s.data.excerpt}</p>
+              <div class="more"><span>Read story</span><span>→</span></div>
+            </a>
+          ))}
+        </div>
+        <div class="empty" id="storyEmpty">No stories in this category yet. Check back soon.</div>
+        <p style="text-align:center;margin-top:44px;font-size:13px;color:var(--ink-soft)">Stories are shared with permission. Names are shortened to protect families’ privacy.</p>
+      </div>
+    </section>
+    <CtaBand
+      heading="Have a story to share?"
+      text="If working with Whitney or coming to Bloom Circle made a difference for you, she’d love to hear about it."
+      primary={{ label: 'Share your story', href: '/contact' }}
+    />
+  </main>
+  <script>
+    const chips = document.querySelectorAll<HTMLButtonElement>('#storyChips .chip-btn');
+    const cards = document.querySelectorAll<HTMLElement>('#storyGrid .scard');
+    const empty = document.getElementById('storyEmpty');
+    chips.forEach((chip) =>
+      chip.addEventListener('click', () => {
+        const tag = chip.dataset.tag;
+        chips.forEach((c) => c.classList.toggle('on', c === chip));
+        let n = 0;
+        cards.forEach((card) => {
+          const show = tag === 'All' || card.dataset.tag === tag;
+          card.style.display = show ? '' : 'none';
+          if (show) n++;
+        });
+        if (empty) empty.style.display = n ? 'none' : 'block';
+      })
+    );
+  </script>
+</Layout>

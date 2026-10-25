@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Affiliations from '../components/Affiliations.astro';
+import CtaBand from '../components/CtaBand.astro';
+import site from '../data/site.json';
+import bloom from '../data/bloom.json';
+import about from '../data/about.json';
+import svc from '../data/services.json';
+import testimonialData from '../data/testimonials.json';
+const testimonials = testimonialData.items;
+import { upcoming, nextShort, type BloomConfig } from '../lib/bloom';
+
+const next = upcoming(bloom as unknown as BloomConfig, 1)[0];
+const nextLabel = next ? nextShort(next, bloom as unknown as BloomConfig) : 'Free to attend';
+const phoneHref = `tel:${site.phone.replace(/\D/g, '')}`;
+---
+<Layout
+  title="Lactation Consultant in Portland + Astoria, OR"
+  description="Judgment-free infant feeding support from an RN and IBCLC. Lactation consultations, bottle feeding help, tongue tie assessments, and the free Bloom Circle support group in Portland and Astoria, Oregon."
+>
+  <main id="main">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Infant feeding support · Portland + Astoria</span>
+          <h1>Where compassionate care meets <em>expert advice</em></h1>
+          <p class="lede">Judgment-free infant feeding support. We want to help you reach your goal, no matter what that may be.</p>
+          <div class="hero-cta">
+            <a class="btn solid" href="/services#book">Book a consultation</a>
+            <a class="btn ghost" href="/bloom-circle">Join Bloom Circle</a>
+          </div>
+          <div class="trust">
+            <div><b>RN · IBCLC</b>Board certified</div>
+            <div><b>13+ years</b>Supporting families</div>
+            <div><b>Insurance</b>Tricare + OHP accepted</div>
+          </div>
+        </div>
+        <div class="arch">
+          <div class="arch-img">
+            <img src="/images/hero-parent-nursing.jpg" width="1000" height="1500" alt="Close-up of a parent nursing a newborn" style="object-position:center 38%" fetchpriority="high" />
+          </div>
+          <a class="badge" href="/bloom-circle">
+            <div class="dot"><img src="/images/pacific-rose-icon.png" width="40" height="40" alt="" /></div>
+            <div><small>Next Bloom Circle</small><span data-next-short>{nextLabel}</span></div>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-white">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">Services</span>
+          <h2>Support that meets you where you are</h2>
+          <p>One-to-one sessions built around your baby, your body, and your goals.</p>
+        </div>
+        <div class="svc-grid">
+          {svc.services.map((s) => (
+            <a class={`svc c-${s.color}`} href="/services">
+              <div class="n">{s.num}</div>
+              <h3>{s.shortTitle}</h3>
+              <p>{s.homeBlurb}</p>
+              <div class="meta">{s.homeMeta}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="wrap about-grid">
+        <div class="portrait"><div class="ph"><img src={site.portraitPhoto} alt={about.name} loading="lazy" /></div></div>
+        <div>
+          <span class="eyebrow">Meet your lactation consultant</span>
+          <h2 style="font-size:clamp(34px,4vw,50px);margin-bottom:8px">Hi, I’m Whitney</h2>
+          <span class="cred">{about.homeCred}</span>
+          <p>{about.homeBlurb}</p>
+          <div class="facts">
+            {about.homeFacts.map((f) => (<div><b>{f.big}</b><span>{f.small}</span></div>))}
+          </div>
+          <a class="btn ghost" href="/about">Read my story</a>
+        </div>
+      </div>
+    </section>
+
+    <Affiliations />
+
+    <section class="bloom-band">
+      <div class="wrap bloom-grid">
+        <div class="bloom-art"><div class="ring2"></div><div class="ring"></div><img src="/images/pacific-rose-icon.png" width="420" height="415" alt="Pacific Rose mark" loading="lazy" /></div>
+        <div>
+          <span class="eyebrow">Free community support group</span>
+          <h2>Bloom Circle</h2>
+          <p class="sub">Come as you are. Feed, chat, snack, and connect with other moms navigating the same season of life.</p>
+          <div class="when">
+            <div><small>When</small><b>{bloom.scheduleLabel}</b><span>{bloom.timeLabel}</span></div>
+            <div><small>Where</small><b>{bloom.venue}</b><span>{bloom.street}, Portland</span></div>
+          </div>
+          <a class="btn solid" href="/bloom-circle">See upcoming dates</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="quote">
+      <div class="wrap">
+        <img src="/images/pacific-rose-icon.png" width="420" height="415" alt="" loading="lazy" />
+        <blockquote>“A baby is born with a need to be loved, and never outgrows it.”</blockquote>
+        <cite>Frank A. Clark</cite>
+      </div>
+    </div>
+
+    {testimonials.length > 0 && (
+      <section>
+        <div class="wrap">
+          <div class="head"><span class="eyebrow">Kind words</span><h2>From families like yours</h2></div>
+          <div class="tgrid">
+            {testimonials.map((t) => (
+              <div class="t">
+                {t.placeholder && <span class="tag-ph">Placeholder</span>}
+                <p>“{t.quote}”</p>
+                <small>{t.attribution}</small>
+              </div>
+            ))}
+          </div>
+          <div style="text-align:center;margin-top:38px"><a class="btn ghost" href="/stories">Read parent stories</a></div>
+        </div>
+      </section>
+    )}
+
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="ig-top">
+          <div><span class="eyebrow">On Instagram</span><h2 class="ig-h">{site.instagramHandle}</h2></div>
+          <a class="btn ghost" href={site.instagramUrl} target="_blank" rel="noopener">Follow along</a>
+        </div>
+        <div class="ig">
+          <div class="i1"><small>Educational</small>Tongue tie 101</div>
+          <div class="i2"><small>Community</small>Bloom Circle meets Wednesday</div>
+          <div class="i3"><small>Support</small>You don’t need a reason to reach out</div>
+          <div class="i4"><small>Authority</small>Why work with an IBCLC</div>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      heading="Ready when you are"
+      text="Whether it’s a first feed or a fresh challenge, you don’t have to figure it out alone."
+      primary={{ label: 'Book a consultation', href: '/services#book' }}
+      secondary={{ label: 'Ask a question', href: '/contact' }}
+    />
+  </main>
+  <script>import '../scripts/bloom';</script>
+</Layout>

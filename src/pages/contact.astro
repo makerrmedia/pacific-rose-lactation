@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
+import bloom from '../data/bloom.json';
+const phoneHref = `tel:${site.phone.replace(/\D/g, '')}`;
+---
+<Layout
+  title="Contact"
+  description="Questions about feeding, appointments, insurance, or Bloom Circle? Send Whitney a note and she’ll get back to you as soon as she can."
+>
+  <main id="main">
+    <section style="padding-top:80px">
+      <div class="wrap contact-grid">
+        <div>
+          <span class="eyebrow">Contact</span>
+          <h1 style="font-size:clamp(40px,5vw,62px);margin-bottom:18px">Let’s talk about your feeding journey</h1>
+          <p style="font-weight:300;font-size:17px;color:var(--ink-soft);max-width:440px">For questions about feeding issues, appointment types, booking, or Bloom Circle, send a note and I’ll get back to you as soon as I can.</p>
+          <div class="cinfo">
+            <div><small>Email</small><a href={`mailto:${site.email}`}>{site.email}</a></div>
+            <div><small>Phone</small><a href={phoneHref}>{site.phone}</a></div>
+            <div><small>Bloom Circle</small><span>{bloom.venue} · {bloom.street}, Portland</span></div>
+          </div>
+        </div>
+        <div class="formcard">
+          <form id="contactForm" novalidate data-endpoint={site.contactFormEndpoint} name="contact" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <div class="row">
+              <label>Name<input type="text" id="cName" name="name" placeholder="Your name" autocomplete="name" /></label>
+              <label>Email<input type="email" id="cEmail" name="email" placeholder="you@email.com" autocomplete="email" /></label>
+            </div>
+            <label>I’m interested in
+              <select id="cTopic" name="topic">
+                <option>A lactation consultation</option>
+                <option>Tongue tie assessment</option>
+                <option>Prenatal master class</option>
+                <option>Bottle feeding support</option>
+                <option>Bloom Circle</option>
+                <option>Something else</option>
+              </select>
+            </label>
+            <label>Message<textarea id="cMsg" name="message" placeholder="Tell me a little about what’s going on"></textarea></label>
+            <p class="form-note">Please don’t include medical details in this form. For anything urgent, contact your healthcare provider.</p>
+            <div class="field-err" id="cErr" role="alert"></div>
+            <button class="btn solid" type="submit">Send message</button>
+          </form>
+          <div class="ok" id="cOk" style="margin-top:6px">Thank you! Your message is on its way. I’ll be in touch as soon as I can.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>import '../scripts/forms';</script>
+</Layout>

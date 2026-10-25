@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const all = (await getCollection('stories')).filter((s) => !s.data.draft).sort((a, b) => a.data.order - b.data.order);
+  return all.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, prev: all[(i - 1 + all.length) % all.length], next: all[(i + 1) % all.length] },
+  }));
+}
+
+const { entry, prev, next } = Astro.props;
+const s = entry.data;
+---
+<Layout title={s.seoTitle ?? s.title} description={s.metaDescription} noindex={s.sample}>
+  <main id="main">
+    <section style="padding:64px 0 96px">
+      <div class="wrap">
+        <a class="crumb" href="/stories">← All parent stories</a>
+        <div class="story-head">
+          <h1>{s.title}</h1>
+          <div class="story-meta">
+            <span class="tg">{s.tag}</span>
+            <span>Parent, {s.place}</span>
+            {s.sample && (<Fragment><span>·</span><span class="sample-tag">Sample story, placeholder text</span></Fragment>)}
+          </div>
+        </div>
+        <div class="story-cols" style="margin-top:48px">
+          <div>
+            <div class="sblock"><h4>What was going on</h4><p>“{s.going}”</p></div>
+            <div class="sblock"><h4>What we worked on</h4><p>“{s.worked}”</p></div>
+            <div class="sblock"><h4>How it feels now</h4><p>“{s.now}”</p></div>
+          </div>
+          <aside class="side">
+            <div class="box">
+              <small>Related service</small>
+              <h3>{s.serviceLabel}</h3>
+              <a class="btn solid" href={s.serviceHref}>Learn more</a>
+              <div style="height:10px"></div>
+              <a class="btn ghost" href="/services#book">Book a consultation</a>
+            </div>
+          </aside>
+        </div>
+        <div class="snav">
+          <a href={`/stories/${prev.id}`}><small>← Previous</small><span>{prev.data.title}</span></a>
+          <a href={`/stories/${next.id}`}><small>Next →</small><span>{next.data.title}</span></a>
+        </div>
+      </div>
+    </section>
+    <CtaBand
+      heading="Ready when you are"
+      text="Whether it’s a first feed or a fresh challenge, you don’t have to figure it out alone."
+      primary={{ label: 'Book a consultation', href: '/services#book' }}
+      secondary={{ label: 'Ask a question', href: '/contact' }}
+    />
+  </main>
+</Layout>
