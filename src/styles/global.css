@@ -94,7 +94,7 @@
   details.sv summary::-webkit-details-marker{display:none}
   details.sv .num{font-family:var(--display);font-size:22px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center}
   details.sv h3{font-size:28px}
-  details.sv .sub{font-size:13px;color:var(--ink-soft);letter-spacing:.04em;margin-top:6px}
+  details.sv .sub{font-size:13px;color:var(--ink-soft);letter-spacing:.04em;margin-top:6px;margin-bottom:0}
   details.sv .plus{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--basalt);position:relative;transition:.3s}
   details.sv .plus::before,details.sv .plus::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.5px;background:var(--basalt);transform:translate(-50%,-50%)}
   details.sv .plus::after{transform:translate(-50%,-50%) rotate(90deg);transition:.3s}
@@ -446,3 +446,7 @@ footer .brand-text span:first-child{white-space:nowrap}
 .vcard .btn{margin-top:auto;white-space:nowrap}
 @media(max-width:900px){.vcard{padding:30px 28px}}
 @media(max-width:360px){.vcard .btn{white-space:normal;text-align:center}}
+/* two-column checklists: each column flows on its own, so a wrapped item doesn't leave a gap beside it */
+.ticks.two{display:block;columns:2;column-gap:24px}
+.ticks.two li{break-inside:avoid;margin-bottom:9px}
+@media(max-width:900px){.ticks.two{columns:1}}
