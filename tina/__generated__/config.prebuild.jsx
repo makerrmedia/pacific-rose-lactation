@@ -488,6 +488,39 @@ var config_default = defineConfig({
         }
       ]),
       // ------------------------------------------------------------- Site info
+      // ------------------------------------------------------------ home stats
+      jsonFile("stats", "Home page stats", "stats", [
+        {
+          type: "object",
+          name: "stat1",
+          label: "Stat 1 (RN \xB7 IBCLC)",
+          fields: [
+            text("title", "Title", "Short. For example: RN \xB7 IBCLC"),
+            text("line1", "First line"),
+            text("line2", "Second line", "On phones the two lines stack; on wider screens they sit on one line. Keep both short.")
+          ]
+        },
+        {
+          type: "object",
+          name: "stat2",
+          label: "Stat 2 (13+ years)",
+          fields: [
+            text("title", "Title", "Short. For example: 13+ years"),
+            text("line1", "First line"),
+            text("line2", "Second line", "On phones the two lines stack; on wider screens they sit on one line. Keep both short.")
+          ]
+        },
+        {
+          type: "object",
+          name: "stat3",
+          label: "Stat 3 (Insurance)",
+          fields: [
+            text("title", "Title", "Short. For example: Insurance"),
+            text("line1", "First line"),
+            text("line2", "Second line", "On phones the two lines stack; on wider screens they sit on one line. Keep both short.")
+          ]
+        }
+      ]),
       // ------------------------------------------------------------ home tiles
       jsonFile("tiles", "Home page tiles", "tiles", [
         text("eyebrow", "Small heading", "For example: Not sure where to start?"),

@@ -8,6 +8,7 @@ import about from '../data/about.json';
 import svc from '../data/services.json';
 import testimonialData from '../data/testimonials.json';
 import tiles from '../data/tiles.json';
+import stats from '../data/stats.json';
 import { serviceHref } from '../lib/services';
 const testimonials = testimonialData.items;
 import { upcoming, nextShort, type BloomConfig } from '../lib/bloom';
@@ -32,9 +33,9 @@ const phoneHref = `tel:${site.phone.replace(/\D/g, '')}`;
             <a class="btn ghost" href="/bloom-circle">Join Bloom Circle</a>
           </div>
           <div class="trust">
-            <div><b>RN · IBCLC</b>Board <br class="m-br" />certified</div>
-            <div><b>13+ years</b>Supporting <br class="m-br" />families</div>
-            <div><b>Insurance</b>All major plans, <br class="m-br" />Tricare + OHP</div>
+            {[stats.stat1, stats.stat2, stats.stat3].map((t) => (
+              <div><b>{t.title}</b>{t.line1} <br class="m-br" />{t.line2}</div>
+            ))}
           </div>
         </div>
         <div class="arch">

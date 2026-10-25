@@ -123,6 +123,28 @@ fragment TestimonialsParts on Testimonials {
   }
 }
 
+fragment StatsParts on Stats {
+  __typename
+  stat1 {
+    __typename
+    title
+    line1
+    line2
+  }
+  stat2 {
+    __typename
+    title
+    line1
+    line2
+  }
+  stat3 {
+    __typename
+    title
+    line1
+    line2
+  }
+}
+
 fragment TilesParts on Tiles {
   __typename
   eyebrow

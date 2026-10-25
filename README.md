@@ -29,6 +29,7 @@ Everything Whitney is likely to change is in plain content files. These are the 
 | Bio, credentials, timeline, facts | `src/data/about.json` |
 | Testimonials (home page) | `src/data/testimonials.json` |
 | "Where are you right now?" tiles (home page) | `src/data/tiles.json` |
+| Three stats under the home page buttons (credentials, years, insurance) | `src/data/stats.json` |
 | Phone, email, Instagram, booking link, photo, form endpoints | `src/data/site.json` |
 | Affiliation logos | `src/data/affiliations.json` + `public/affiliations/` |
 
@@ -73,6 +74,7 @@ account.
 | FAQ | Questions and answers |
 | About Whitney | Bio, credentials, timeline |
 | Testimonials | Quotes (placeholders are labeled) |
+| Home page stats | The three stats under the home page buttons, including insurance |
 | Home page tiles | The four colored "Where are you right now?" tiles: label, two lines, link |
 | Contact + site info | Phone, email, Instagram, booking link, her photo |
 

@@ -136,6 +136,29 @@ export const TestimonialsPartsFragmentDoc = gql`
   }
 }
     `;
+export const StatsPartsFragmentDoc = gql`
+    fragment StatsParts on Stats {
+  __typename
+  stat1 {
+    __typename
+    title
+    line1
+    line2
+  }
+  stat2 {
+    __typename
+    title
+    line1
+    line2
+  }
+  stat3 {
+    __typename
+    title
+    line1
+    line2
+  }
+}
+    `;
 export const TilesPartsFragmentDoc = gql`
     fragment TilesParts on Tiles {
   __typename
@@ -527,6 +550,63 @@ export const TestimonialsConnectionDocument = gql`
   }
 }
     ${TestimonialsPartsFragmentDoc}`;
+export const StatsDocument = gql`
+    query stats($relativePath: String!) {
+  stats(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...StatsParts
+  }
+}
+    ${StatsPartsFragmentDoc}`;
+export const StatsConnectionDocument = gql`
+    query statsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: StatsFilter) {
+  statsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...StatsParts
+      }
+    }
+  }
+}
+    ${StatsPartsFragmentDoc}`;
 export const TilesDocument = gql`
     query tiles($relativePath: String!) {
   tiles(relativePath: $relativePath) {
@@ -678,6 +758,12 @@ export function getSdk(requester) {
     },
     testimonialsConnection(variables, options) {
       return requester(TestimonialsConnectionDocument, variables, options);
+    },
+    stats(variables, options) {
+      return requester(StatsDocument, variables, options);
+    },
+    statsConnection(variables, options) {
+      return requester(StatsConnectionDocument, variables, options);
     },
     tiles(variables, options) {
       return requester(TilesDocument, variables, options);
