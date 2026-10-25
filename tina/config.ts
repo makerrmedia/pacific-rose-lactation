@@ -33,6 +33,22 @@ const yesNo = (name: string, label: string, description?: string) => ({
   description,
 });
 
+// Story web address from the headline: lowercase, filler words dropped, cut at a whole word.
+const SLUG_FILLER = new Set(['a', 'an', 'the', 'and', 'or', 'of', 'to', 'with', 'for', 'from', 'in', 'on', 'at', 'our', 'my', 'your', 's']);
+const storySlug = (title: unknown) => {
+  const words = String(title || '')
+    .toLowerCase()
+    .replace(/[’']/g, '')
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w && !SLUG_FILLER.has(w));
+  let slug = '';
+  for (const w of words) {
+    if ((slug + '-' + w).length > 60) break;
+    slug = slug ? `${slug}-${w}` : w;
+  }
+  return slug || 'new-story';
+};
+
 // Pages a home page tile can link to.
 const TILE_LINKS = [
   { value: '/services', label: 'Services' },
@@ -82,12 +98,9 @@ export default defineConfig({
         format: 'md',
         ui: {
           filename: {
-            slugify: (values: Record<string, any>) =>
-              String(values?.title || 'new-story')
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/^-+|-+$/g, '')
-                .slice(0, 60),
+            slugify: (values: Record<string, any>) => storySlug(values?.title),
+            description:
+              'The story’s web address: pacificroselactation.com/stories/(this). It fills in from the headline. To change it, click the box before the first save. Short and lowercase, words joined with dashes. Changing it after the story is live breaks shared links, so ask Emily first.',
           },
           defaultItem: () => ({
             place: 'Portland',
