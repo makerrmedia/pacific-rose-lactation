@@ -79,7 +79,7 @@ const sessions = upcoming(cfg, 4);
         <div class="signup">
           <div><h3>Get Bloom Circle reminders</h3><p>A friendly note before each session, plus the occasional feeding tip. No spam, ever.</p></div>
           <div>
-            <form class="inline-form" id="remForm" novalidate data-endpoint={site.reminderFormEndpoint} name="reminders" data-netlify="true">
+            <form class="inline-form" id="remForm" novalidate data-endpoint={site.reminderFormEndpoint} name="reminders" data-netlify="true" netlify-honeypot="website">
               <input type="hidden" name="form-name" value="reminders" />
               <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <input type="email" name="email" id="remEmail" placeholder="you@email.com" aria-label="Email" autocomplete="email" />

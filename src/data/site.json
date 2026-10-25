@@ -10,6 +10,6 @@
   "heroCredit": "Hero photo: Ayla Meinberg, Unsplash",
   "name": "Pacific Rose Lactation",
   "url": "https://pacificroselactation.com",
-  "contactFormEndpoint": "",
-  "reminderFormEndpoint": ""
+  "contactFormEndpoint": "netlify",
+  "reminderFormEndpoint": "netlify"
 }
