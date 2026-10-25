@@ -262,24 +262,24 @@ type ServicesServicesRight {
 }
 
 type ServicesServices {
-  num: String
-  color: String
   title: String
   shortTitle: String
   homeBlurb: String
   homeMeta: String
   subtitle: String
+  num: String
+  color: String
   open: Boolean
   left: ServicesServicesLeft
   right: ServicesServicesRight
 }
 
 type Services implements Node & Document {
+  services: [ServicesServices]
   cashRate: String
   insurance: [String]
   pills: [String]
   also: [String]
-  services: [ServicesServices]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -306,24 +306,24 @@ input ServicesServicesRightFilter {
 }
 
 input ServicesServicesFilter {
-  num: StringFilter
-  color: StringFilter
   title: StringFilter
   shortTitle: StringFilter
   homeBlurb: StringFilter
   homeMeta: StringFilter
   subtitle: StringFilter
+  num: StringFilter
+  color: StringFilter
   open: BooleanFilter
   left: ServicesServicesLeftFilter
   right: ServicesServicesRightFilter
 }
 
 input ServicesFilter {
+  services: ServicesServicesFilter
   cashRate: StringFilter
   insurance: StringFilter
   pills: StringFilter
   also: StringFilter
-  services: ServicesServicesFilter
 }
 
 type ServicesConnectionEdges {
@@ -732,24 +732,24 @@ input ServicesServicesRightMutation {
 }
 
 input ServicesServicesMutation {
-  num: String
-  color: String
   title: String
   shortTitle: String
   homeBlurb: String
   homeMeta: String
   subtitle: String
+  num: String
+  color: String
   open: Boolean
   left: ServicesServicesLeftMutation
   right: ServicesServicesRightMutation
 }
 
 input ServicesMutation {
+  services: [ServicesServicesMutation]
   cashRate: String
   insurance: [String]
   pills: [String]
   also: [String]
-  services: [ServicesServicesMutation]
 }
 
 input FaqItemsMutation {

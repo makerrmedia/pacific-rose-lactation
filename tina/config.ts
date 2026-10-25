@@ -194,29 +194,38 @@ export default defineConfig({
 
       // -------------------------------------------------------------- Services
       jsonFile('services', 'Services + rates', 'services', [
-        text('cashRate', 'Cash rate', 'For example: $200'),
-        stringList('insurance', 'Insurance badges'),
-        stringList('pills', 'Highlights under the page title'),
-        stringList('also', '"Also supporting" chips'),
         {
           type: 'object',
           name: 'services',
           label: 'Services',
+          description: 'Your main services. Each one is a card on the home page and an expandable section on the Services page. Drag to reorder.',
           list: true,
           ui: { itemProps: (item: Record<string, any>) => ({ label: item?.title || 'New service' }) },
           fields: [
-            text('num', 'Number', 'For example: 01'),
-            { type: 'string', name: 'color', label: 'Card color', options: ['a', 'b', 'c', 'd'] },
-            text('title', 'Title'),
-            text('shortTitle', 'Short title (home page card)'),
-            longText('homeBlurb', 'Home page card text'),
-            text('homeMeta', 'Home page card duration'),
-            text('subtitle', 'Subtitle (services page)'),
-            yesNo('open', 'Open by default'),
+            text('title', 'Service name', 'Full name, shown on the Services page. For example: Tongue tie assessment + support'),
+            text('shortTitle', 'Short name (home page card)', 'A shorter version for the home page card. For example: Tongue tie'),
+            longText('homeBlurb', 'Home page card text', 'One or two sentences.'),
+            text('homeMeta', 'Session length (home page card)', 'For example: 60 to 90 minutes'),
+            text('subtitle', 'Subtitle (Services page)', 'Shown under the name on the Services page.'),
+            text('num', 'Number', 'Shown in the circle next to the name. For example: 01'),
+            {
+              type: 'string',
+              name: 'color',
+              label: 'Card color',
+              description: 'Background of the home page card, and the circle behind the number on the Services page.',
+              options: [
+                { value: 'a', label: 'Petal pink' },
+                { value: 'b', label: 'Blue-grey' },
+                { value: 'c', label: 'Sage' },
+                { value: 'd', label: 'White with pink outline' },
+              ],
+            },
+            yesNo('open', 'Start opened on the Services page', 'Usually only the first service.'),
             {
               type: 'object',
               name: 'left',
-              label: 'Left column',
+              label: 'Details: left column',
+              description: 'Shown when the service is opened on the Services page.',
               fields: [
                 {
                   type: 'object',
@@ -229,7 +238,7 @@ export default defineConfig({
                 {
                   type: 'object',
                   name: 'list',
-                  label: 'Checklist (optional)',
+                  label: 'Checklist under the paragraphs (optional)',
                   fields: [text('heading', 'Heading'), stringList('items', 'Items')],
                 },
               ],
@@ -237,7 +246,8 @@ export default defineConfig({
             {
               type: 'object',
               name: 'right',
-              label: 'Right column',
+              label: 'Details: right column',
+              description: 'The checklist on the right when the service is opened. For example: What we cover.',
               fields: [
                 text('heading', 'Heading'),
                 yesNo('twoCol', 'Show in two columns'),
@@ -246,6 +256,14 @@ export default defineConfig({
             },
           ],
         },
+        text('cashRate', 'Price (Services page, "Payment + insurance" box)', 'The large price near the bottom of the Services page. For example: $200'),
+        stringList('insurance', 'Insurance accepted (Services page, "Payment + insurance" box)', 'Small tags under the price. One plan per line.'),
+        stringList(
+          'pills',
+          'Quick facts under the Services page title',
+          'The row of small rounded tags just under the big Services page heading. Keep each one short. Update these if the price or insurance changes.'
+        ),
+        stringList('also', 'Other things you help with (Services page)', 'Tags shown after the list of services, next to "Also supporting".'),
       ]),
 
       // ------------------------------------------------------------------- FAQ

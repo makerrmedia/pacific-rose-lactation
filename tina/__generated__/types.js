@@ -50,19 +50,15 @@ export const BloomPartsFragmentDoc = gql`
 export const ServicesPartsFragmentDoc = gql`
     fragment ServicesParts on Services {
   __typename
-  cashRate
-  insurance
-  pills
-  also
   services {
     __typename
-    num
-    color
     title
     shortTitle
     homeBlurb
     homeMeta
     subtitle
+    num
+    color
     open
     left {
       __typename
@@ -83,6 +79,10 @@ export const ServicesPartsFragmentDoc = gql`
       items
     }
   }
+  cashRate
+  insurance
+  pills
+  also
 }
     `;
 export const FaqPartsFragmentDoc = gql`

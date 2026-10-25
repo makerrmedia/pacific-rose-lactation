@@ -457,13 +457,13 @@ export type ServicesServicesRight = {
 
 export type ServicesServices = {
   __typename?: 'ServicesServices';
-  num?: Maybe<Scalars['String']['output']>;
-  color?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   shortTitle?: Maybe<Scalars['String']['output']>;
   homeBlurb?: Maybe<Scalars['String']['output']>;
   homeMeta?: Maybe<Scalars['String']['output']>;
   subtitle?: Maybe<Scalars['String']['output']>;
+  num?: Maybe<Scalars['String']['output']>;
+  color?: Maybe<Scalars['String']['output']>;
   open?: Maybe<Scalars['Boolean']['output']>;
   left?: Maybe<ServicesServicesLeft>;
   right?: Maybe<ServicesServicesRight>;
@@ -471,11 +471,11 @@ export type ServicesServices = {
 
 export type Services = Node & Document & {
   __typename?: 'Services';
+  services?: Maybe<Array<Maybe<ServicesServices>>>;
   cashRate?: Maybe<Scalars['String']['output']>;
   insurance?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   pills?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   also?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  services?: Maybe<Array<Maybe<ServicesServices>>>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -502,24 +502,24 @@ export type ServicesServicesRightFilter = {
 };
 
 export type ServicesServicesFilter = {
-  num?: InputMaybe<StringFilter>;
-  color?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   shortTitle?: InputMaybe<StringFilter>;
   homeBlurb?: InputMaybe<StringFilter>;
   homeMeta?: InputMaybe<StringFilter>;
   subtitle?: InputMaybe<StringFilter>;
+  num?: InputMaybe<StringFilter>;
+  color?: InputMaybe<StringFilter>;
   open?: InputMaybe<BooleanFilter>;
   left?: InputMaybe<ServicesServicesLeftFilter>;
   right?: InputMaybe<ServicesServicesRightFilter>;
 };
 
 export type ServicesFilter = {
+  services?: InputMaybe<ServicesServicesFilter>;
   cashRate?: InputMaybe<StringFilter>;
   insurance?: InputMaybe<StringFilter>;
   pills?: InputMaybe<StringFilter>;
   also?: InputMaybe<StringFilter>;
-  services?: InputMaybe<ServicesServicesFilter>;
 };
 
 export type ServicesConnectionEdges = {
@@ -1085,24 +1085,24 @@ export type ServicesServicesRightMutation = {
 };
 
 export type ServicesServicesMutation = {
-  num?: InputMaybe<Scalars['String']['input']>;
-  color?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   shortTitle?: InputMaybe<Scalars['String']['input']>;
   homeBlurb?: InputMaybe<Scalars['String']['input']>;
   homeMeta?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
+  num?: InputMaybe<Scalars['String']['input']>;
+  color?: InputMaybe<Scalars['String']['input']>;
   open?: InputMaybe<Scalars['Boolean']['input']>;
   left?: InputMaybe<ServicesServicesLeftMutation>;
   right?: InputMaybe<ServicesServicesRightMutation>;
 };
 
 export type ServicesMutation = {
+  services?: InputMaybe<Array<InputMaybe<ServicesServicesMutation>>>;
   cashRate?: InputMaybe<Scalars['String']['input']>;
   insurance?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   pills?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   also?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  services?: InputMaybe<Array<InputMaybe<ServicesServicesMutation>>>;
 };
 
 export type FaqItemsMutation = {
@@ -1293,24 +1293,24 @@ export type ServicesServicesRightFilter = {
 };
 
 export type ServicesServicesFilter = {
-  num?: StringFilter | null | undefined;
-  color?: StringFilter | null | undefined;
   title?: StringFilter | null | undefined;
   shortTitle?: StringFilter | null | undefined;
   homeBlurb?: StringFilter | null | undefined;
   homeMeta?: StringFilter | null | undefined;
   subtitle?: StringFilter | null | undefined;
+  num?: StringFilter | null | undefined;
+  color?: StringFilter | null | undefined;
   open?: BooleanFilter | null | undefined;
   left?: ServicesServicesLeftFilter | null | undefined;
   right?: ServicesServicesRightFilter | null | undefined;
 };
 
 export type ServicesFilter = {
+  services?: ServicesServicesFilter | null | undefined;
   cashRate?: StringFilter | null | undefined;
   insurance?: StringFilter | null | undefined;
   pills?: StringFilter | null | undefined;
   also?: StringFilter | null | undefined;
-  services?: ServicesServicesFilter | null | undefined;
 };
 
 export type FaqItemsFilter = {
@@ -1429,7 +1429,7 @@ export type StoryPartsFragment = { __typename: 'Story', title: string, tag: stri
 
 export type BloomPartsFragment = { __typename: 'Bloom', venue: string | null, venueNote: string | null, street: string | null, cityLine: string | null, mapsUrl: string | null, topics: Array<string | null> | null, scheduleLabel: string | null, timeLabel: string | null, cancelledDates: Array<{ __typename: 'BloomCancelledDates', date: string | null, note: string | null } | null> | null, extraDates: Array<{ __typename: 'BloomExtraDates', date: string | null, note: string | null } | null> | null };
 
-export type ServicesPartsFragment = { __typename: 'Services', cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, services: Array<{ __typename: 'ServicesServices', num: string | null, color: string | null, title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null };
+export type ServicesPartsFragment = { __typename: 'Services', cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, services: Array<{ __typename: 'ServicesServices', title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, num: string | null, color: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null };
 
 export type FaqPartsFragment = { __typename: 'Faq', items: Array<{ __typename: 'FaqItems', q: string | null, a: string | null, linkLabel: string | null, linkHref: string | null } | null> | null };
 
@@ -1484,7 +1484,7 @@ export type ServicesQueryVariables = Exact<{
 }>;
 
 
-export type ServicesQuery = { services: { __typename: 'Services', id: string, cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, services: Array<{ __typename: 'ServicesServices', num: string | null, color: string | null, title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null } };
+export type ServicesQuery = { services: { __typename: 'Services', id: string, cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, services: Array<{ __typename: 'ServicesServices', title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, num: string | null, color: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null } };
 
 export type ServicesConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1496,7 +1496,7 @@ export type ServicesConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ServicesConnectionQuery = { servicesConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Services', id: string, cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, services: Array<{ __typename: 'ServicesServices', num: string | null, color: string | null, title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null } | null } | null> | null } };
+export type ServicesConnectionQuery = { servicesConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Services', id: string, cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, services: Array<{ __typename: 'ServicesServices', title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, num: string | null, color: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null } | null } | null> | null } };
 
 export type FaqQueryVariables = Exact<{
   relativePath: string;
@@ -1638,19 +1638,15 @@ export const BloomPartsFragmentDoc = gql`
 export const ServicesPartsFragmentDoc = gql`
     fragment ServicesParts on Services {
   __typename
-  cashRate
-  insurance
-  pills
-  also
   services {
     __typename
-    num
-    color
     title
     shortTitle
     homeBlurb
     homeMeta
     subtitle
+    num
+    color
     open
     left {
       __typename
@@ -1671,6 +1667,10 @@ export const ServicesPartsFragmentDoc = gql`
       items
     }
   }
+  cashRate
+  insurance
+  pills
+  also
 }
     `;
 export const FaqPartsFragmentDoc = gql`

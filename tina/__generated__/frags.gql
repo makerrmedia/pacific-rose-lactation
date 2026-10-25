@@ -40,19 +40,15 @@ fragment BloomParts on Bloom {
 
 fragment ServicesParts on Services {
   __typename
-  cashRate
-  insurance
-  pills
-  also
   services {
     __typename
-    num
-    color
     title
     shortTitle
     homeBlurb
     homeMeta
     subtitle
+    num
+    color
     open
     left {
       __typename
@@ -73,6 +69,10 @@ fragment ServicesParts on Services {
       items
     }
   }
+  cashRate
+  insurance
+  pills
+  also
 }
 
 fragment FaqParts on Faq {
