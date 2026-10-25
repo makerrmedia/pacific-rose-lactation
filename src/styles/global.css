@@ -395,6 +395,8 @@ footer .brand-text span:first-child{white-space:nowrap}
   footer .brand-text span:last-child{font-size:7px;letter-spacing:.42em;margin-top:5px}
   footer .f-brand p{font-size:12.5px}
   .bloom-art{max-width:230px}
+  /* tablet widths: photos stack under the text, so keep them from filling the whole window */
+  .arch,.portrait{max-width:420px;width:100%;margin-left:auto;margin-right:auto}
   .bloom-art .ring2{inset:-14px}
   .ig{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ig div{font-size:19px;padding:18px}
