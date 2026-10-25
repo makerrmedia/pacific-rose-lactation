@@ -7,7 +7,7 @@ going: 'As a first-time mom, I came in with a thousand questions, and our daught
 worked: 'We started by bringing up her weight and establishing my supply. From there, Whitney stayed with us through every stage: managing my supply, digestion issues and spit up, introducing bottles, returning to work, and starting solids. When the time came, she helped us make a weaning plan, too. She’s genuinely invested, celebrates every win, and always finds a solution that fits our life.'
 now: 'We stayed with Whitney all the way to weaning, past our daughter’s first birthday, and I can’t imagine that season of motherhood without her. It was the best support we received, pre and postpartum. Whitney became my favorite part of my daughter’s care team, and my whole family knows and loves her.'
 serviceLabel: Lactation support session
-draft: true
+draft: false
 sample: false
 seoTitle: 'Feeding Support from Newborn to Weaning in Astoria | Pacific Rose Lactation'
 metaDescription: A first-time mom in Astoria shares how judgment-free feeding support carried her family from newborn weight gain to weaning.
