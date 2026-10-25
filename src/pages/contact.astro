@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import site from '../data/site.json';
 import bloom from '../data/bloom.json';
+import svc from '../data/services.json';
 const phoneHref = `tel:${site.phone.replace(/\D/g, '')}`;
 ---
 <Layout
@@ -31,10 +32,7 @@ const phoneHref = `tel:${site.phone.replace(/\D/g, '')}`;
             </div>
             <label>I’m interested in
               <select id="cTopic" name="topic">
-                <option>A lactation consultation</option>
-                <option>Tongue tie assessment</option>
-                <option>Prenatal master class</option>
-                <option>Bottle feeding support</option>
+                {svc.services.map((x) => <option>{x.title}</option>)}
                 <option>Bloom Circle</option>
                 <option>Something else</option>
               </select>

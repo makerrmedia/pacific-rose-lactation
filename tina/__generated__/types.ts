@@ -382,14 +382,14 @@ export type Bloom = Node & Document & {
   __typename?: 'Bloom';
   cancelledDates?: Maybe<Array<Maybe<BloomCancelledDates>>>;
   extraDates?: Maybe<Array<Maybe<BloomExtraDates>>>;
+  scheduleLabel?: Maybe<Scalars['String']['output']>;
+  timeLabel?: Maybe<Scalars['String']['output']>;
   venue?: Maybe<Scalars['String']['output']>;
   venueNote?: Maybe<Scalars['String']['output']>;
   street?: Maybe<Scalars['String']['output']>;
   cityLine?: Maybe<Scalars['String']['output']>;
   mapsUrl?: Maybe<Scalars['String']['output']>;
   topics?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  scheduleLabel?: Maybe<Scalars['String']['output']>;
-  timeLabel?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -408,14 +408,14 @@ export type BloomExtraDatesFilter = {
 export type BloomFilter = {
   cancelledDates?: InputMaybe<BloomCancelledDatesFilter>;
   extraDates?: InputMaybe<BloomExtraDatesFilter>;
+  scheduleLabel?: InputMaybe<StringFilter>;
+  timeLabel?: InputMaybe<StringFilter>;
   venue?: InputMaybe<StringFilter>;
   venueNote?: InputMaybe<StringFilter>;
   street?: InputMaybe<StringFilter>;
   cityLine?: InputMaybe<StringFilter>;
   mapsUrl?: InputMaybe<StringFilter>;
   topics?: InputMaybe<StringFilter>;
-  scheduleLabel?: InputMaybe<StringFilter>;
-  timeLabel?: InputMaybe<StringFilter>;
 };
 
 export type BloomConnectionEdges = {
@@ -462,7 +462,6 @@ export type ServicesServices = {
   homeBlurb?: Maybe<Scalars['String']['output']>;
   homeMeta?: Maybe<Scalars['String']['output']>;
   subtitle?: Maybe<Scalars['String']['output']>;
-  num?: Maybe<Scalars['String']['output']>;
   color?: Maybe<Scalars['String']['output']>;
   open?: Maybe<Scalars['Boolean']['output']>;
   left?: Maybe<ServicesServicesLeft>;
@@ -507,7 +506,6 @@ export type ServicesServicesFilter = {
   homeBlurb?: InputMaybe<StringFilter>;
   homeMeta?: InputMaybe<StringFilter>;
   subtitle?: InputMaybe<StringFilter>;
-  num?: InputMaybe<StringFilter>;
   color?: InputMaybe<StringFilter>;
   open?: InputMaybe<BooleanFilter>;
   left?: InputMaybe<ServicesServicesLeftFilter>;
@@ -575,15 +573,15 @@ export type FaqConnection = Connection & {
   edges?: Maybe<Array<Maybe<FaqConnectionEdges>>>;
 };
 
-export type AboutBio = {
-  __typename?: 'AboutBio';
-  text?: Maybe<Scalars['String']['output']>;
-};
-
 export type AboutHomeFacts = {
   __typename?: 'AboutHomeFacts';
   big?: Maybe<Scalars['String']['output']>;
   small?: Maybe<Scalars['String']['output']>;
+};
+
+export type AboutBio = {
+  __typename?: 'AboutBio';
+  text?: Maybe<Scalars['String']['output']>;
 };
 
 export type AboutFacts = {
@@ -603,10 +601,10 @@ export type About = Node & Document & {
   __typename?: 'About';
   name?: Maybe<Scalars['String']['output']>;
   homeCred?: Maybe<Scalars['String']['output']>;
-  aboutCred?: Maybe<Scalars['String']['output']>;
   homeBlurb?: Maybe<Scalars['String']['output']>;
-  bio?: Maybe<Array<Maybe<AboutBio>>>;
   homeFacts?: Maybe<Array<Maybe<AboutHomeFacts>>>;
+  aboutCred?: Maybe<Scalars['String']['output']>;
+  bio?: Maybe<Array<Maybe<AboutBio>>>;
   facts?: Maybe<Array<Maybe<AboutFacts>>>;
   timeline?: Maybe<Array<Maybe<AboutTimeline>>>;
   id: Scalars['ID']['output'];
@@ -614,13 +612,13 @@ export type About = Node & Document & {
   _values: Scalars['JSON']['output'];
 };
 
-export type AboutBioFilter = {
-  text?: InputMaybe<StringFilter>;
-};
-
 export type AboutHomeFactsFilter = {
   big?: InputMaybe<StringFilter>;
   small?: InputMaybe<StringFilter>;
+};
+
+export type AboutBioFilter = {
+  text?: InputMaybe<StringFilter>;
 };
 
 export type AboutFactsFilter = {
@@ -637,10 +635,10 @@ export type AboutTimelineFilter = {
 export type AboutFilter = {
   name?: InputMaybe<StringFilter>;
   homeCred?: InputMaybe<StringFilter>;
-  aboutCred?: InputMaybe<StringFilter>;
   homeBlurb?: InputMaybe<StringFilter>;
-  bio?: InputMaybe<AboutBioFilter>;
   homeFacts?: InputMaybe<AboutHomeFactsFilter>;
+  aboutCred?: InputMaybe<StringFilter>;
+  bio?: InputMaybe<AboutBioFilter>;
   facts?: InputMaybe<AboutFactsFilter>;
   timeline?: InputMaybe<AboutTimelineFilter>;
 };
@@ -801,11 +799,7 @@ export type Site = Node & Document & {
   instagramUrl?: Maybe<Scalars['String']['output']>;
   facebookUrl?: Maybe<Scalars['String']['output']>;
   portraitPhoto?: Maybe<Scalars['String']['output']>;
-  tagline?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
-  url?: Maybe<Scalars['String']['output']>;
-  contactFormEndpoint?: Maybe<Scalars['String']['output']>;
-  reminderFormEndpoint?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -827,11 +821,7 @@ export type SiteFilter = {
   instagramUrl?: InputMaybe<StringFilter>;
   facebookUrl?: InputMaybe<StringFilter>;
   portraitPhoto?: InputMaybe<ImageFilter>;
-  tagline?: InputMaybe<StringFilter>;
   name?: InputMaybe<StringFilter>;
-  url?: InputMaybe<StringFilter>;
-  contactFormEndpoint?: InputMaybe<StringFilter>;
-  reminderFormEndpoint?: InputMaybe<StringFilter>;
 };
 
 export type SiteConnectionEdges = {
@@ -1054,14 +1044,14 @@ export type BloomExtraDatesMutation = {
 export type BloomMutation = {
   cancelledDates?: InputMaybe<Array<InputMaybe<BloomCancelledDatesMutation>>>;
   extraDates?: InputMaybe<Array<InputMaybe<BloomExtraDatesMutation>>>;
+  scheduleLabel?: InputMaybe<Scalars['String']['input']>;
+  timeLabel?: InputMaybe<Scalars['String']['input']>;
   venue?: InputMaybe<Scalars['String']['input']>;
   venueNote?: InputMaybe<Scalars['String']['input']>;
   street?: InputMaybe<Scalars['String']['input']>;
   cityLine?: InputMaybe<Scalars['String']['input']>;
   mapsUrl?: InputMaybe<Scalars['String']['input']>;
   topics?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  scheduleLabel?: InputMaybe<Scalars['String']['input']>;
-  timeLabel?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ServicesServicesLeftParagraphsMutation = {
@@ -1090,7 +1080,6 @@ export type ServicesServicesMutation = {
   homeBlurb?: InputMaybe<Scalars['String']['input']>;
   homeMeta?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
-  num?: InputMaybe<Scalars['String']['input']>;
   color?: InputMaybe<Scalars['String']['input']>;
   open?: InputMaybe<Scalars['Boolean']['input']>;
   left?: InputMaybe<ServicesServicesLeftMutation>;
@@ -1116,13 +1105,13 @@ export type FaqMutation = {
   items?: InputMaybe<Array<InputMaybe<FaqItemsMutation>>>;
 };
 
-export type AboutBioMutation = {
-  text?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type AboutHomeFactsMutation = {
   big?: InputMaybe<Scalars['String']['input']>;
   small?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AboutBioMutation = {
+  text?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AboutFactsMutation = {
@@ -1139,10 +1128,10 @@ export type AboutTimelineMutation = {
 export type AboutMutation = {
   name?: InputMaybe<Scalars['String']['input']>;
   homeCred?: InputMaybe<Scalars['String']['input']>;
-  aboutCred?: InputMaybe<Scalars['String']['input']>;
   homeBlurb?: InputMaybe<Scalars['String']['input']>;
-  bio?: InputMaybe<Array<InputMaybe<AboutBioMutation>>>;
   homeFacts?: InputMaybe<Array<InputMaybe<AboutHomeFactsMutation>>>;
+  aboutCred?: InputMaybe<Scalars['String']['input']>;
+  bio?: InputMaybe<Array<InputMaybe<AboutBioMutation>>>;
   facts?: InputMaybe<Array<InputMaybe<AboutFactsMutation>>>;
   timeline?: InputMaybe<Array<InputMaybe<AboutTimelineMutation>>>;
 };
@@ -1203,11 +1192,7 @@ export type SiteMutation = {
   instagramUrl?: InputMaybe<Scalars['String']['input']>;
   facebookUrl?: InputMaybe<Scalars['String']['input']>;
   portraitPhoto?: InputMaybe<Scalars['String']['input']>;
-  tagline?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
-  url?: InputMaybe<Scalars['String']['input']>;
-  contactFormEndpoint?: InputMaybe<Scalars['String']['input']>;
-  reminderFormEndpoint?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type StringFilter = {
@@ -1262,14 +1247,14 @@ export type BloomExtraDatesFilter = {
 export type BloomFilter = {
   cancelledDates?: BloomCancelledDatesFilter | null | undefined;
   extraDates?: BloomExtraDatesFilter | null | undefined;
+  scheduleLabel?: StringFilter | null | undefined;
+  timeLabel?: StringFilter | null | undefined;
   venue?: StringFilter | null | undefined;
   venueNote?: StringFilter | null | undefined;
   street?: StringFilter | null | undefined;
   cityLine?: StringFilter | null | undefined;
   mapsUrl?: StringFilter | null | undefined;
   topics?: StringFilter | null | undefined;
-  scheduleLabel?: StringFilter | null | undefined;
-  timeLabel?: StringFilter | null | undefined;
 };
 
 export type ServicesServicesLeftParagraphsFilter = {
@@ -1298,7 +1283,6 @@ export type ServicesServicesFilter = {
   homeBlurb?: StringFilter | null | undefined;
   homeMeta?: StringFilter | null | undefined;
   subtitle?: StringFilter | null | undefined;
-  num?: StringFilter | null | undefined;
   color?: StringFilter | null | undefined;
   open?: BooleanFilter | null | undefined;
   left?: ServicesServicesLeftFilter | null | undefined;
@@ -1324,13 +1308,13 @@ export type FaqFilter = {
   items?: FaqItemsFilter | null | undefined;
 };
 
-export type AboutBioFilter = {
-  text?: StringFilter | null | undefined;
-};
-
 export type AboutHomeFactsFilter = {
   big?: StringFilter | null | undefined;
   small?: StringFilter | null | undefined;
+};
+
+export type AboutBioFilter = {
+  text?: StringFilter | null | undefined;
 };
 
 export type AboutFactsFilter = {
@@ -1347,10 +1331,10 @@ export type AboutTimelineFilter = {
 export type AboutFilter = {
   name?: StringFilter | null | undefined;
   homeCred?: StringFilter | null | undefined;
-  aboutCred?: StringFilter | null | undefined;
   homeBlurb?: StringFilter | null | undefined;
-  bio?: AboutBioFilter | null | undefined;
   homeFacts?: AboutHomeFactsFilter | null | undefined;
+  aboutCred?: StringFilter | null | undefined;
+  bio?: AboutBioFilter | null | undefined;
   facts?: AboutFactsFilter | null | undefined;
   timeline?: AboutTimelineFilter | null | undefined;
 };
@@ -1418,28 +1402,24 @@ export type SiteFilter = {
   instagramUrl?: StringFilter | null | undefined;
   facebookUrl?: StringFilter | null | undefined;
   portraitPhoto?: ImageFilter | null | undefined;
-  tagline?: StringFilter | null | undefined;
   name?: StringFilter | null | undefined;
-  url?: StringFilter | null | undefined;
-  contactFormEndpoint?: StringFilter | null | undefined;
-  reminderFormEndpoint?: StringFilter | null | undefined;
 };
 
 export type StoryPartsFragment = { __typename: 'Story', title: string, tag: string, place: string, excerpt: string | null, going: string | null, worked: string | null, now: string | null, serviceLabel: string, draft: boolean | null, sample: boolean | null, seoTitle: string | null, metaDescription: string | null, color: string | null, order: number | null };
 
-export type BloomPartsFragment = { __typename: 'Bloom', venue: string | null, venueNote: string | null, street: string | null, cityLine: string | null, mapsUrl: string | null, topics: Array<string | null> | null, scheduleLabel: string | null, timeLabel: string | null, cancelledDates: Array<{ __typename: 'BloomCancelledDates', date: string | null, note: string | null } | null> | null, extraDates: Array<{ __typename: 'BloomExtraDates', date: string | null, note: string | null } | null> | null };
+export type BloomPartsFragment = { __typename: 'Bloom', scheduleLabel: string | null, timeLabel: string | null, venue: string | null, venueNote: string | null, street: string | null, cityLine: string | null, mapsUrl: string | null, topics: Array<string | null> | null, cancelledDates: Array<{ __typename: 'BloomCancelledDates', date: string | null, note: string | null } | null> | null, extraDates: Array<{ __typename: 'BloomExtraDates', date: string | null, note: string | null } | null> | null };
 
-export type ServicesPartsFragment = { __typename: 'Services', cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, services: Array<{ __typename: 'ServicesServices', title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, num: string | null, color: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null };
+export type ServicesPartsFragment = { __typename: 'Services', cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, services: Array<{ __typename: 'ServicesServices', title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, color: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null };
 
 export type FaqPartsFragment = { __typename: 'Faq', items: Array<{ __typename: 'FaqItems', q: string | null, a: string | null, linkLabel: string | null, linkHref: string | null } | null> | null };
 
-export type AboutPartsFragment = { __typename: 'About', name: string | null, homeCred: string | null, aboutCred: string | null, homeBlurb: string | null, bio: Array<{ __typename: 'AboutBio', text: string | null } | null> | null, homeFacts: Array<{ __typename: 'AboutHomeFacts', big: string | null, small: string | null } | null> | null, facts: Array<{ __typename: 'AboutFacts', big: string | null, small: string | null } | null> | null, timeline: Array<{ __typename: 'AboutTimeline', year: string | null, title: string | null, text: string | null } | null> | null };
+export type AboutPartsFragment = { __typename: 'About', name: string | null, homeCred: string | null, homeBlurb: string | null, aboutCred: string | null, homeFacts: Array<{ __typename: 'AboutHomeFacts', big: string | null, small: string | null } | null> | null, bio: Array<{ __typename: 'AboutBio', text: string | null } | null> | null, facts: Array<{ __typename: 'AboutFacts', big: string | null, small: string | null } | null> | null, timeline: Array<{ __typename: 'AboutTimeline', year: string | null, title: string | null, text: string | null } | null> | null };
 
 export type TestimonialsPartsFragment = { __typename: 'Testimonials', items: Array<{ __typename: 'TestimonialsItems', quote: string | null, attribution: string | null, placeholder: boolean | null } | null> | null };
 
 export type TilesPartsFragment = { __typename: 'Tiles', eyebrow: string | null, heading: string | null, tile1: { __typename: 'TilesTile1', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile2: { __typename: 'TilesTile2', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile3: { __typename: 'TilesTile3', label: string | null, line1: string | null, line2: string | null, link: string | null } | null, tile4: { __typename: 'TilesTile4', label: string | null, line1: string | null, line2: string | null, link: string | null } | null };
 
-export type SitePartsFragment = { __typename: 'Site', phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, facebookUrl: string | null, portraitPhoto: string | null, tagline: string | null, name: string | null, url: string | null, contactFormEndpoint: string | null, reminderFormEndpoint: string | null };
+export type SitePartsFragment = { __typename: 'Site', phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, facebookUrl: string | null, portraitPhoto: string | null, name: string | null };
 
 export type StoryQueryVariables = Exact<{
   relativePath: string;
@@ -1465,7 +1445,7 @@ export type BloomQueryVariables = Exact<{
 }>;
 
 
-export type BloomQuery = { bloom: { __typename: 'Bloom', id: string, venue: string | null, venueNote: string | null, street: string | null, cityLine: string | null, mapsUrl: string | null, topics: Array<string | null> | null, scheduleLabel: string | null, timeLabel: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, cancelledDates: Array<{ __typename: 'BloomCancelledDates', date: string | null, note: string | null } | null> | null, extraDates: Array<{ __typename: 'BloomExtraDates', date: string | null, note: string | null } | null> | null } };
+export type BloomQuery = { bloom: { __typename: 'Bloom', id: string, scheduleLabel: string | null, timeLabel: string | null, venue: string | null, venueNote: string | null, street: string | null, cityLine: string | null, mapsUrl: string | null, topics: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, cancelledDates: Array<{ __typename: 'BloomCancelledDates', date: string | null, note: string | null } | null> | null, extraDates: Array<{ __typename: 'BloomExtraDates', date: string | null, note: string | null } | null> | null } };
 
 export type BloomConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1477,14 +1457,14 @@ export type BloomConnectionQueryVariables = Exact<{
 }>;
 
 
-export type BloomConnectionQuery = { bloomConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Bloom', id: string, venue: string | null, venueNote: string | null, street: string | null, cityLine: string | null, mapsUrl: string | null, topics: Array<string | null> | null, scheduleLabel: string | null, timeLabel: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, cancelledDates: Array<{ __typename: 'BloomCancelledDates', date: string | null, note: string | null } | null> | null, extraDates: Array<{ __typename: 'BloomExtraDates', date: string | null, note: string | null } | null> | null } | null } | null> | null } };
+export type BloomConnectionQuery = { bloomConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Bloom', id: string, scheduleLabel: string | null, timeLabel: string | null, venue: string | null, venueNote: string | null, street: string | null, cityLine: string | null, mapsUrl: string | null, topics: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, cancelledDates: Array<{ __typename: 'BloomCancelledDates', date: string | null, note: string | null } | null> | null, extraDates: Array<{ __typename: 'BloomExtraDates', date: string | null, note: string | null } | null> | null } | null } | null> | null } };
 
 export type ServicesQueryVariables = Exact<{
   relativePath: string;
 }>;
 
 
-export type ServicesQuery = { services: { __typename: 'Services', id: string, cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, services: Array<{ __typename: 'ServicesServices', title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, num: string | null, color: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null } };
+export type ServicesQuery = { services: { __typename: 'Services', id: string, cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, services: Array<{ __typename: 'ServicesServices', title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, color: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null } };
 
 export type ServicesConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1496,7 +1476,7 @@ export type ServicesConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ServicesConnectionQuery = { servicesConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Services', id: string, cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, services: Array<{ __typename: 'ServicesServices', title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, num: string | null, color: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null } | null } | null> | null } };
+export type ServicesConnectionQuery = { servicesConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Services', id: string, cashRate: string | null, insurance: Array<string | null> | null, pills: Array<string | null> | null, also: Array<string | null> | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, services: Array<{ __typename: 'ServicesServices', title: string | null, shortTitle: string | null, homeBlurb: string | null, homeMeta: string | null, subtitle: string | null, color: string | null, open: boolean | null, left: { __typename: 'ServicesServicesLeft', paragraphs: Array<{ __typename: 'ServicesServicesLeftParagraphs', text: string | null } | null> | null, list: { __typename: 'ServicesServicesLeftList', heading: string | null, items: Array<string | null> | null } | null } | null, right: { __typename: 'ServicesServicesRight', heading: string | null, twoCol: boolean | null, items: Array<string | null> | null } | null } | null> | null } | null } | null> | null } };
 
 export type FaqQueryVariables = Exact<{
   relativePath: string;
@@ -1522,7 +1502,7 @@ export type AboutQueryVariables = Exact<{
 }>;
 
 
-export type AboutQuery = { about: { __typename: 'About', id: string, name: string | null, homeCred: string | null, aboutCred: string | null, homeBlurb: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, bio: Array<{ __typename: 'AboutBio', text: string | null } | null> | null, homeFacts: Array<{ __typename: 'AboutHomeFacts', big: string | null, small: string | null } | null> | null, facts: Array<{ __typename: 'AboutFacts', big: string | null, small: string | null } | null> | null, timeline: Array<{ __typename: 'AboutTimeline', year: string | null, title: string | null, text: string | null } | null> | null } };
+export type AboutQuery = { about: { __typename: 'About', id: string, name: string | null, homeCred: string | null, homeBlurb: string | null, aboutCred: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, homeFacts: Array<{ __typename: 'AboutHomeFacts', big: string | null, small: string | null } | null> | null, bio: Array<{ __typename: 'AboutBio', text: string | null } | null> | null, facts: Array<{ __typename: 'AboutFacts', big: string | null, small: string | null } | null> | null, timeline: Array<{ __typename: 'AboutTimeline', year: string | null, title: string | null, text: string | null } | null> | null } };
 
 export type AboutConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1534,7 +1514,7 @@ export type AboutConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AboutConnectionQuery = { aboutConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'About', id: string, name: string | null, homeCred: string | null, aboutCred: string | null, homeBlurb: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, bio: Array<{ __typename: 'AboutBio', text: string | null } | null> | null, homeFacts: Array<{ __typename: 'AboutHomeFacts', big: string | null, small: string | null } | null> | null, facts: Array<{ __typename: 'AboutFacts', big: string | null, small: string | null } | null> | null, timeline: Array<{ __typename: 'AboutTimeline', year: string | null, title: string | null, text: string | null } | null> | null } | null } | null> | null } };
+export type AboutConnectionQuery = { aboutConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'About', id: string, name: string | null, homeCred: string | null, homeBlurb: string | null, aboutCred: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, homeFacts: Array<{ __typename: 'AboutHomeFacts', big: string | null, small: string | null } | null> | null, bio: Array<{ __typename: 'AboutBio', text: string | null } | null> | null, facts: Array<{ __typename: 'AboutFacts', big: string | null, small: string | null } | null> | null, timeline: Array<{ __typename: 'AboutTimeline', year: string | null, title: string | null, text: string | null } | null> | null } | null } | null> | null } };
 
 export type TestimonialsQueryVariables = Exact<{
   relativePath: string;
@@ -1579,7 +1559,7 @@ export type SiteQueryVariables = Exact<{
 }>;
 
 
-export type SiteQuery = { site: { __typename: 'Site', id: string, phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, facebookUrl: string | null, portraitPhoto: string | null, tagline: string | null, name: string | null, url: string | null, contactFormEndpoint: string | null, reminderFormEndpoint: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type SiteQuery = { site: { __typename: 'Site', id: string, phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, facebookUrl: string | null, portraitPhoto: string | null, name: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type SiteConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1591,7 +1571,7 @@ export type SiteConnectionQueryVariables = Exact<{
 }>;
 
 
-export type SiteConnectionQuery = { siteConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Site', id: string, phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, facebookUrl: string | null, portraitPhoto: string | null, tagline: string | null, name: string | null, url: string | null, contactFormEndpoint: string | null, reminderFormEndpoint: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type SiteConnectionQuery = { siteConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Site', id: string, phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, facebookUrl: string | null, portraitPhoto: string | null, name: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export const StoryPartsFragmentDoc = gql`
     fragment StoryParts on Story {
@@ -1625,14 +1605,14 @@ export const BloomPartsFragmentDoc = gql`
     date
     note
   }
+  scheduleLabel
+  timeLabel
   venue
   venueNote
   street
   cityLine
   mapsUrl
   topics
-  scheduleLabel
-  timeLabel
 }
     `;
 export const ServicesPartsFragmentDoc = gql`
@@ -1645,7 +1625,6 @@ export const ServicesPartsFragmentDoc = gql`
     homeBlurb
     homeMeta
     subtitle
-    num
     color
     open
     left {
@@ -1690,16 +1669,16 @@ export const AboutPartsFragmentDoc = gql`
   __typename
   name
   homeCred
-  aboutCred
   homeBlurb
-  bio {
-    __typename
-    text
-  }
   homeFacts {
     __typename
     big
     small
+  }
+  aboutCred
+  bio {
+    __typename
+    text
   }
   facts {
     __typename
@@ -1771,11 +1750,7 @@ export const SitePartsFragmentDoc = gql`
   instagramUrl
   facebookUrl
   portraitPhoto
-  tagline
   name
-  url
-  contactFormEndpoint
-  reminderFormEndpoint
 }
     `;
 export const StoryDocument = gql`

@@ -28,14 +28,14 @@ fragment BloomParts on Bloom {
     date
     note
   }
+  scheduleLabel
+  timeLabel
   venue
   venueNote
   street
   cityLine
   mapsUrl
   topics
-  scheduleLabel
-  timeLabel
 }
 
 fragment ServicesParts on Services {
@@ -47,7 +47,6 @@ fragment ServicesParts on Services {
     homeBlurb
     homeMeta
     subtitle
-    num
     color
     open
     left {
@@ -90,16 +89,16 @@ fragment AboutParts on About {
   __typename
   name
   homeCred
-  aboutCred
   homeBlurb
-  bio {
-    __typename
-    text
-  }
   homeFacts {
     __typename
     big
     small
+  }
+  aboutCred
+  bio {
+    __typename
+    text
   }
   facts {
     __typename
@@ -168,9 +167,5 @@ fragment SiteParts on Site {
   instagramUrl
   facebookUrl
   portraitPhoto
-  tagline
   name
-  url
-  contactFormEndpoint
-  reminderFormEndpoint
 }

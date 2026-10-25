@@ -459,3 +459,5 @@ footer .brand-text span:first-child{white-space:nowrap}
   details.sv .sub .sep{display:none}
   details.sv .sub .nw{display:block}
 }
+/* odd number of services: the last home page card spans the full row so the grid looks finished */
+.svc-grid>.svc:last-child:nth-child(odd){grid-column:1/-1}

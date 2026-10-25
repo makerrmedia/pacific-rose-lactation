@@ -37,14 +37,14 @@ export const BloomPartsFragmentDoc = gql`
     date
     note
   }
+  scheduleLabel
+  timeLabel
   venue
   venueNote
   street
   cityLine
   mapsUrl
   topics
-  scheduleLabel
-  timeLabel
 }
     `;
 export const ServicesPartsFragmentDoc = gql`
@@ -57,7 +57,6 @@ export const ServicesPartsFragmentDoc = gql`
     homeBlurb
     homeMeta
     subtitle
-    num
     color
     open
     left {
@@ -102,16 +101,16 @@ export const AboutPartsFragmentDoc = gql`
   __typename
   name
   homeCred
-  aboutCred
   homeBlurb
-  bio {
-    __typename
-    text
-  }
   homeFacts {
     __typename
     big
     small
+  }
+  aboutCred
+  bio {
+    __typename
+    text
   }
   facts {
     __typename
@@ -183,11 +182,7 @@ export const SitePartsFragmentDoc = gql`
   instagramUrl
   facebookUrl
   portraitPhoto
-  tagline
   name
-  url
-  contactFormEndpoint
-  reminderFormEndpoint
 }
     `;
 export const StoryDocument = gql`

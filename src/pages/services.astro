@@ -34,10 +34,10 @@ const faqLd = {
 
     <section style="padding-top:20px">
       <div class="wrap acc">
-        {svc.services.map((s) => (
+        {svc.services.map((s, i) => (
           <details class="sv" id={serviceId(s.title)} open={s.open}>
             <summary>
-              <span class={`num c-${s.color}`} style={s.color === 'd' ? 'border:1.5px solid var(--rose)' : undefined}>{s.num}</span>
+              <span class={`num c-${s.color}`} style={s.color === 'd' ? 'border:1.5px solid var(--rose)' : undefined}>{String(i + 1).padStart(2, '0')}</span>
               <div><h3>{s.title}</h3><div class="sub">{s.subtitle.split(' · ').map((part, i) => (<Fragment>{i > 0 && <span class="sep"> · </span>}<span class="nw">{part}</span></Fragment>))}</div></div>
               <span class="plus"></span>
             </summary>

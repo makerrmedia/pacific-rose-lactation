@@ -57,9 +57,9 @@ const phoneHref = `tel:${site.phone.replace(/\D/g, '')}`;
           <p>One-to-one sessions built around your baby, your body, and your goals.</p>
         </div>
         <div class="svc-grid">
-          {svc.services.map((s) => (
+          {svc.services.map((s, i) => (
             <a class={`svc c-${s.color}`} href={serviceHref(s.title)}>
-              <div class="n">{s.num}</div>
+              <div class="n">{String(i + 1).padStart(2, '0')}</div>
               <h3>{s.shortTitle}</h3>
               <p>{s.homeBlurb}</p>
               <div class="meta">{s.homeMeta}</div>

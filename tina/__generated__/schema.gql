@@ -194,14 +194,14 @@ type BloomExtraDates {
 type Bloom implements Node & Document {
   cancelledDates: [BloomCancelledDates]
   extraDates: [BloomExtraDates]
+  scheduleLabel: String
+  timeLabel: String
   venue: String
   venueNote: String
   street: String
   cityLine: String
   mapsUrl: String
   topics: [String]
-  scheduleLabel: String
-  timeLabel: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -220,14 +220,14 @@ input BloomExtraDatesFilter {
 input BloomFilter {
   cancelledDates: BloomCancelledDatesFilter
   extraDates: BloomExtraDatesFilter
+  scheduleLabel: StringFilter
+  timeLabel: StringFilter
   venue: StringFilter
   venueNote: StringFilter
   street: StringFilter
   cityLine: StringFilter
   mapsUrl: StringFilter
   topics: StringFilter
-  scheduleLabel: StringFilter
-  timeLabel: StringFilter
 }
 
 type BloomConnectionEdges {
@@ -267,7 +267,6 @@ type ServicesServices {
   homeBlurb: String
   homeMeta: String
   subtitle: String
-  num: String
   color: String
   open: Boolean
   left: ServicesServicesLeft
@@ -311,7 +310,6 @@ input ServicesServicesFilter {
   homeBlurb: StringFilter
   homeMeta: StringFilter
   subtitle: StringFilter
-  num: StringFilter
   color: StringFilter
   open: BooleanFilter
   left: ServicesServicesLeftFilter
@@ -373,13 +371,13 @@ type FaqConnection implements Connection {
   edges: [FaqConnectionEdges]
 }
 
-type AboutBio {
-  text: String
-}
-
 type AboutHomeFacts {
   big: String
   small: String
+}
+
+type AboutBio {
+  text: String
 }
 
 type AboutFacts {
@@ -396,10 +394,10 @@ type AboutTimeline {
 type About implements Node & Document {
   name: String
   homeCred: String
-  aboutCred: String
   homeBlurb: String
-  bio: [AboutBio]
   homeFacts: [AboutHomeFacts]
+  aboutCred: String
+  bio: [AboutBio]
   facts: [AboutFacts]
   timeline: [AboutTimeline]
   id: ID!
@@ -407,13 +405,13 @@ type About implements Node & Document {
   _values: JSON!
 }
 
-input AboutBioFilter {
-  text: StringFilter
-}
-
 input AboutHomeFactsFilter {
   big: StringFilter
   small: StringFilter
+}
+
+input AboutBioFilter {
+  text: StringFilter
 }
 
 input AboutFactsFilter {
@@ -430,10 +428,10 @@ input AboutTimelineFilter {
 input AboutFilter {
   name: StringFilter
   homeCred: StringFilter
-  aboutCred: StringFilter
   homeBlurb: StringFilter
-  bio: AboutBioFilter
   homeFacts: AboutHomeFactsFilter
+  aboutCred: StringFilter
+  bio: AboutBioFilter
   facts: AboutFactsFilter
   timeline: AboutTimelineFilter
 }
@@ -580,11 +578,7 @@ type Site implements Node & Document {
   instagramUrl: String
   facebookUrl: String
   portraitPhoto: String
-  tagline: String
   name: String
-  url: String
-  contactFormEndpoint: String
-  reminderFormEndpoint: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -606,11 +600,7 @@ input SiteFilter {
   instagramUrl: StringFilter
   facebookUrl: StringFilter
   portraitPhoto: ImageFilter
-  tagline: StringFilter
   name: StringFilter
-  url: StringFilter
-  contactFormEndpoint: StringFilter
-  reminderFormEndpoint: StringFilter
 }
 
 type SiteConnectionEdges {
@@ -701,14 +691,14 @@ input BloomExtraDatesMutation {
 input BloomMutation {
   cancelledDates: [BloomCancelledDatesMutation]
   extraDates: [BloomExtraDatesMutation]
+  scheduleLabel: String
+  timeLabel: String
   venue: String
   venueNote: String
   street: String
   cityLine: String
   mapsUrl: String
   topics: [String]
-  scheduleLabel: String
-  timeLabel: String
 }
 
 input ServicesServicesLeftParagraphsMutation {
@@ -737,7 +727,6 @@ input ServicesServicesMutation {
   homeBlurb: String
   homeMeta: String
   subtitle: String
-  num: String
   color: String
   open: Boolean
   left: ServicesServicesLeftMutation
@@ -763,13 +752,13 @@ input FaqMutation {
   items: [FaqItemsMutation]
 }
 
-input AboutBioMutation {
-  text: String
-}
-
 input AboutHomeFactsMutation {
   big: String
   small: String
+}
+
+input AboutBioMutation {
+  text: String
 }
 
 input AboutFactsMutation {
@@ -786,10 +775,10 @@ input AboutTimelineMutation {
 input AboutMutation {
   name: String
   homeCred: String
-  aboutCred: String
   homeBlurb: String
-  bio: [AboutBioMutation]
   homeFacts: [AboutHomeFactsMutation]
+  aboutCred: String
+  bio: [AboutBioMutation]
   facts: [AboutFactsMutation]
   timeline: [AboutTimelineMutation]
 }
@@ -850,11 +839,7 @@ input SiteMutation {
   instagramUrl: String
   facebookUrl: String
   portraitPhoto: String
-  tagline: String
   name: String
-  url: String
-  contactFormEndpoint: String
-  reminderFormEndpoint: String
 }
 
 schema {

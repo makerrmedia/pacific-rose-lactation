@@ -18,7 +18,6 @@
   ],
   "services": [
     {
-      "num": "01",
       "color": "a",
       "title": "Lactation support session",
       "shortTitle": "Lactation support session",
@@ -65,7 +64,6 @@
       }
     },
     {
-      "num": "02",
       "color": "b",
       "title": "Bottle feeding support",
       "shortTitle": "Bottle feeding support",
@@ -99,7 +97,6 @@
       }
     },
     {
-      "num": "03",
       "color": "c",
       "title": "Prenatal breastfeeding master class",
       "shortTitle": "Prenatal master class",
@@ -134,7 +131,6 @@
       }
     },
     {
-      "num": "04",
       "color": "d",
       "title": "Tongue tie assessment + support",
       "shortTitle": "Tongue tie assessment",
