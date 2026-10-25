@@ -450,3 +450,12 @@ footer .brand-text span:first-child{white-space:nowrap}
 .ticks.two{display:block;columns:2;column-gap:24px}
 .ticks.two li{break-inside:avoid;margin-bottom:9px}
 @media(max-width:900px){.ticks.two{columns:1}}
+/* phones: service headers less crowded; number and +/- pinned to the top beside the title */
+@media(max-width:600px){
+  details.sv summary{align-items:start;gap:14px;padding:22px 20px}
+  details.sv .num{width:40px;height:40px;font-size:16px}
+  details.sv h3{font-size:23px;line-height:1.15;padding-top:6px}
+  details.sv .plus{width:34px;height:34px;margin-top:3px}
+  details.sv .sub .sep{display:none}
+  details.sv .sub .nw{display:block}
+}

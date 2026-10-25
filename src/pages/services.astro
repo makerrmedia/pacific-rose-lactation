@@ -38,7 +38,7 @@ const faqLd = {
           <details class="sv" id={serviceId(s.title)} open={s.open}>
             <summary>
               <span class={`num c-${s.color}`} style={s.color === 'd' ? 'border:1.5px solid var(--rose)' : undefined}>{s.num}</span>
-              <div><h3>{s.title}</h3><div class="sub">{s.subtitle}</div></div>
+              <div><h3>{s.title}</h3><div class="sub">{s.subtitle.split(' · ').map((part, i) => (<Fragment>{i > 0 && <span class="sep"> · </span>}<span class="nw">{part}</span></Fragment>))}</div></div>
               <span class="plus"></span>
             </summary>
             <div class="sv-body">
