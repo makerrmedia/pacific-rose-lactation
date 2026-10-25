@@ -389,7 +389,6 @@ footer .brand-text span:first-child{white-space:nowrap}
 @media(max-width:900px){
   /* footer keeps two columns; the logo shrinks to fit its column */
   .f-grid{column-gap:24px;grid-template-columns:repeat(2,minmax(0,1fr))}
-  footer li{overflow-wrap:anywhere}
   footer .brand{gap:8px}
   footer .brand img{width:34px;height:34px;padding:3px}
   footer .brand-text span:first-child{font-size:clamp(11px,3.6vw,14px)}
@@ -409,3 +408,24 @@ footer .brand-text span:first-child{white-space:nowrap}
   .trust>div+div{border-left:1px solid rgba(28,29,29,.12)}
   .trust b{font-size:15.5px;white-space:nowrap;margin-bottom:4px}
 }
+
+/* "Where are you right now?" tiles (reuse the Instagram card colors) */
+.ig a{aspect-ratio:1/1;border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--display);font-size:21px;line-height:1.2;position:relative;transition:transform .3s}
+.ig a:hover{transform:translateY(-4px)}
+.ig a i{position:absolute;top:18px;right:20px;font-style:normal;font-family:var(--body);font-size:18px;opacity:.7}
+.ig-head{margin-bottom:30px}
+.ig-follow{margin-top:44px;font-size:14px;color:var(--ink-soft);text-align:center}
+/* wider screens: shorter rectangles instead of squares */
+@media(min-width:901px){.ig a{aspect-ratio:auto;min-height:190px}}
+.ig-follow a{color:var(--rose-deep);font-weight:600;border-bottom:1px solid var(--rose-deep);margin-left:4px}
+@media(max-width:900px){.ig a{font-size:19px;padding:18px}}
+
+/* footer social icons */
+.f-social{display:flex;gap:16px;margin-top:22px}
+.f-social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(240,239,239,.3);display:grid;place-items:center;color:var(--petal);transition:.25s}
+.f-social a:hover{background:var(--petal);border-color:var(--petal);color:var(--basalt)}
+.f-social svg{width:18px;height:18px}
+/* smallest phones: long email wraps, decorative block behind the portrait doesn't widen the page */
+.cinfo a{overflow-wrap:anywhere}
+.contact-grid>*{min-width:0}
+.about{overflow-x:clip}

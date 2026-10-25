@@ -487,9 +487,9 @@ type Site implements Node & Document {
   bookingUrl: String
   instagramHandle: String
   instagramUrl: String
+  facebookUrl: String
   portraitPhoto: String
   tagline: String
-  heroCredit: String
   name: String
   url: String
   contactFormEndpoint: String
@@ -513,9 +513,9 @@ input SiteFilter {
   bookingUrl: StringFilter
   instagramHandle: StringFilter
   instagramUrl: StringFilter
+  facebookUrl: StringFilter
   portraitPhoto: ImageFilter
   tagline: StringFilter
-  heroCredit: StringFilter
   name: StringFilter
   url: StringFilter
   contactFormEndpoint: StringFilter
@@ -716,9 +716,9 @@ input SiteMutation {
   bookingUrl: String
   instagramHandle: String
   instagramUrl: String
+  facebookUrl: String
   portraitPhoto: String
   tagline: String
-  heroCredit: String
   name: String
   url: String
   contactFormEndpoint: String

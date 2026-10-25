@@ -132,9 +132,9 @@ fragment SiteParts on Site {
   bookingUrl
   instagramHandle
   instagramUrl
+  facebookUrl
   portraitPhoto
   tagline
-  heroCredit
   name
   url
   contactFormEndpoint

@@ -686,9 +686,9 @@ export type Site = Node & Document & {
   bookingUrl?: Maybe<Scalars['String']['output']>;
   instagramHandle?: Maybe<Scalars['String']['output']>;
   instagramUrl?: Maybe<Scalars['String']['output']>;
+  facebookUrl?: Maybe<Scalars['String']['output']>;
   portraitPhoto?: Maybe<Scalars['String']['output']>;
   tagline?: Maybe<Scalars['String']['output']>;
-  heroCredit?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   url?: Maybe<Scalars['String']['output']>;
   contactFormEndpoint?: Maybe<Scalars['String']['output']>;
@@ -712,9 +712,9 @@ export type SiteFilter = {
   bookingUrl?: InputMaybe<StringFilter>;
   instagramHandle?: InputMaybe<StringFilter>;
   instagramUrl?: InputMaybe<StringFilter>;
+  facebookUrl?: InputMaybe<StringFilter>;
   portraitPhoto?: InputMaybe<ImageFilter>;
   tagline?: InputMaybe<StringFilter>;
-  heroCredit?: InputMaybe<StringFilter>;
   name?: InputMaybe<StringFilter>;
   url?: InputMaybe<StringFilter>;
   contactFormEndpoint?: InputMaybe<StringFilter>;
@@ -1035,9 +1035,9 @@ export type SiteMutation = {
   bookingUrl?: InputMaybe<Scalars['String']['input']>;
   instagramHandle?: InputMaybe<Scalars['String']['input']>;
   instagramUrl?: InputMaybe<Scalars['String']['input']>;
+  facebookUrl?: InputMaybe<Scalars['String']['input']>;
   portraitPhoto?: InputMaybe<Scalars['String']['input']>;
   tagline?: InputMaybe<Scalars['String']['input']>;
-  heroCredit?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   url?: InputMaybe<Scalars['String']['input']>;
   contactFormEndpoint?: InputMaybe<Scalars['String']['input']>;
@@ -1213,9 +1213,9 @@ export type SiteFilter = {
   bookingUrl?: StringFilter | null | undefined;
   instagramHandle?: StringFilter | null | undefined;
   instagramUrl?: StringFilter | null | undefined;
+  facebookUrl?: StringFilter | null | undefined;
   portraitPhoto?: ImageFilter | null | undefined;
   tagline?: StringFilter | null | undefined;
-  heroCredit?: StringFilter | null | undefined;
   name?: StringFilter | null | undefined;
   url?: StringFilter | null | undefined;
   contactFormEndpoint?: StringFilter | null | undefined;
@@ -1234,7 +1234,7 @@ export type AboutPartsFragment = { __typename: 'About', name: string | null, hom
 
 export type TestimonialsPartsFragment = { __typename: 'Testimonials', items: Array<{ __typename: 'TestimonialsItems', quote: string | null, attribution: string | null, placeholder: boolean | null } | null> | null };
 
-export type SitePartsFragment = { __typename: 'Site', phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, portraitPhoto: string | null, tagline: string | null, heroCredit: string | null, name: string | null, url: string | null, contactFormEndpoint: string | null, reminderFormEndpoint: string | null };
+export type SitePartsFragment = { __typename: 'Site', phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, facebookUrl: string | null, portraitPhoto: string | null, tagline: string | null, name: string | null, url: string | null, contactFormEndpoint: string | null, reminderFormEndpoint: string | null };
 
 export type StoryQueryVariables = Exact<{
   relativePath: string;
@@ -1355,7 +1355,7 @@ export type SiteQueryVariables = Exact<{
 }>;
 
 
-export type SiteQuery = { site: { __typename: 'Site', id: string, phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, portraitPhoto: string | null, tagline: string | null, heroCredit: string | null, name: string | null, url: string | null, contactFormEndpoint: string | null, reminderFormEndpoint: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type SiteQuery = { site: { __typename: 'Site', id: string, phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, facebookUrl: string | null, portraitPhoto: string | null, tagline: string | null, name: string | null, url: string | null, contactFormEndpoint: string | null, reminderFormEndpoint: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type SiteConnectionQueryVariables = Exact<{
   before?: string | null | undefined;
@@ -1367,7 +1367,7 @@ export type SiteConnectionQueryVariables = Exact<{
 }>;
 
 
-export type SiteConnectionQuery = { siteConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Site', id: string, phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, portraitPhoto: string | null, tagline: string | null, heroCredit: string | null, name: string | null, url: string | null, contactFormEndpoint: string | null, reminderFormEndpoint: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type SiteConnectionQuery = { siteConnection: { totalCount: number, pageInfo: { hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges: Array<{ cursor: string, node: { __typename: 'Site', id: string, phone: string | null, email: string | null, astoriaPhone: string | null, bookingUrl: string | null, instagramHandle: string | null, instagramUrl: string | null, facebookUrl: string | null, portraitPhoto: string | null, tagline: string | null, name: string | null, url: string | null, contactFormEndpoint: string | null, reminderFormEndpoint: string | null, _sys: { filename: string, basename: string, hasReferences: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export const StoryPartsFragmentDoc = gql`
     fragment StoryParts on Story {
@@ -1510,9 +1510,9 @@ export const SitePartsFragmentDoc = gql`
   bookingUrl
   instagramHandle
   instagramUrl
+  facebookUrl
   portraitPhoto
   tagline
-  heroCredit
   name
   url
   contactFormEndpoint

@@ -96,6 +96,16 @@ const ld = {
               <span class="brand-text"><span>Pacific Rose</span><span>Lactation</span></span>
             </div>
             <p>Where compassionate care meets expert advice. Serving the Portland metro area and Northern coastal counties.</p>
+            <div class="f-social">
+              <a href={site.instagramUrl} target="_blank" rel="noopener" aria-label="Pacific Rose Lactation on Instagram">
+                <svg viewBox="-0.5 -0.5 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.375 1.25h6.25s3.125 0 3.125 3.125v6.25s0 3.125 -3.125 3.125H4.375s-3.125 0 -3.125 -3.125V4.375s0 -3.125 3.125 -3.125" /><path d="M10 7.10625A2.5 2.5 0 1 1 7.89375 5 2.5 2.5 0 0 1 10 7.10625z" /><path d="m10.9375 4.0625 0.00625 0" /></svg>
+              </a>
+              {site.facebookUrl && (
+                <a href={site.facebookUrl} target="_blank" rel="noopener" aria-label="Pacific Rose Lactation on Facebook">
+                  <svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M29.5054 46.4452c0.007 -0.0664 0.0106 -0.1339 0.0106 -0.2021V30.0396h5.5389c0.8881 0 1.6875 -0.5848 1.8173 -1.4633 0.2147 -1.4533 0.1235 -2.7748 -0.0154 -3.7145 -0.1275 -0.8627 -0.8963 -1.4306 -1.7683 -1.4306H29.516c0 -4.9935 0.831 -5.7201 5.5149 -5.811 0.8987 -0.0174 1.7055 -0.6108 1.8359 -1.5002 0.2193 -1.495 0.1319 -2.8012 -0.0057 -3.7201 -0.1271 -0.8488 -0.8882 -1.4021 -1.7464 -1.3946 -8.2784 0.0722 -12.9934 1.051 -12.9934 12.4259h-4.2888c-0.8335 0 -1.5735 0.5224 -1.6996 1.3463 -0.1358 0.8877 -0.2179 2.1744 0.0088 3.7394 0.131 0.9041 0.9442 1.5227 1.8578 1.5227h4.1218v16.4543c-6.41 -0.0421 -10.9981 -0.2951 -13.9856 -0.5378 -3.28785 -0.2671 -5.82468 -2.804 -6.09181 -6.0918C1.77808 36.5927 1.5 31.4014 1.5 24c0 -7.4014 0.27808 -12.5927 0.54389 -15.8643 0.26713 -3.28786 2.80396 -5.82468 6.09182 -6.09181C11.4073 1.77807 16.5986 1.5 24 1.5c7.4014 0 12.5927 0.27808 15.8643 0.54389 3.2878 0.26713 5.8247 2.80396 6.0918 6.09181 0.2658 3.2716 0.5439 8.4629 0.5439 15.8643 0 7.4014 -0.2781 12.5927 -0.5439 15.8643 -0.2671 3.2879 -2.804 5.8247 -6.0918 6.0918 -2.3904 0.1942 -5.8056 0.395 -10.3589 0.4891Z" /></svg>
+                </a>
+              )}
+            </div>
           </div>
           <div>
             <h4>Explore</h4>
@@ -112,7 +122,8 @@ const ld = {
             <ul>
               <li><a href={`tel:${site.phone.replace(/\D/g, '')}`}>{site.phone}</a></li>
               <li><a href={`mailto:${site.email}`}>Email Whitney</a></li>
-              <li><a href={site.instagramUrl} target="_blank" rel="noopener">{site.instagramHandle}</a></li>
+              <li><a href={site.instagramUrl} target="_blank" rel="noopener">Instagram</a></li>
+              {site.facebookUrl && <li><a href={site.facebookUrl} target="_blank" rel="noopener">Facebook</a></li>}
             </ul>
           </div>
           <div>
@@ -124,16 +135,17 @@ const ld = {
             </ul>
           </div>
         </div>
-        <div class="f-bot"><span>© {new Date().getFullYear()} {site.name}</span><span>{site.heroCredit}</span></div>
+        <div class="f-bot"><span>© {new Date().getFullYear()} {site.name}</span></div>
       </div>
     </footer>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script>
-      // Browsers without text-wrap: pretty (older Safari, Firefox): keep the last two words of body text together.
-      if (!CSS.supports('text-wrap', 'pretty')) {
-        document.querySelectorAll('p, li, blockquote').forEach((el) => {
+      // No orphan words: keep the last two words of body text together. text-wrap: pretty alone
+      // doesn't guarantee it in every browser.
+      {
+        document.querySelectorAll('p, blockquote, .ticks li').forEach((el) => {
           const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
           let last: Text | null = null;
           while (walker.nextNode()) if (walker.currentNode.textContent?.trim()) last = walker.currentNode as Text;

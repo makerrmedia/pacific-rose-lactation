@@ -129,16 +129,17 @@ const phoneHref = `tel:${site.phone.replace(/\D/g, '')}`;
 
     <section style="padding-top:0">
       <div class="wrap">
-        <div class="ig-top">
-          <div><span class="eyebrow">On Instagram</span><h2 class="ig-h">{site.instagramHandle}</h2></div>
-          <a class="btn ghost" href={site.instagramUrl} target="_blank" rel="noopener">Follow along</a>
+        <div class="head ig-head">
+          <span class="eyebrow">Not sure where to start?</span>
+          <h2>Where are you right now?</h2>
         </div>
         <div class="ig">
-          <div class="i1"><small>Educational</small><span>Tongue tie 101</span></div>
-          <div class="i2"><small>Community</small><span>Bloom Circle meets Wednesday</span></div>
-          <div class="i3"><small>Support</small><span>You don’t need a reason to reach out</span></div>
-          <div class="i4"><small>Authority</small><span>Why work with an IBCLC</span></div>
+          <a class="i1" href="/services"><small>Feeding hurts</small><span>Painful latch or<br />sore nipples</span><i aria-hidden="true">→</i></a>
+          <a class="i2" href="/bloom-circle"><small>Feeling alone</small><span>Come to<br />Bloom Circle</span><i aria-hidden="true">→</i></a>
+          <a class="i3" href="/services"><small>Back to work</small><span>Pumping and<br />bottle plans</span><i aria-hidden="true">→</i></a>
+          <a class="i4" href="/services"><small>Tongue tie?</small><span>Get an<br />assessment</span><i aria-hidden="true">→</i></a>
         </div>
+        <p class="ig-follow">Follow along on Instagram&nbsp;<a href={site.instagramUrl} target="_blank" rel="noopener">{site.instagramHandle}</a></p>
       </div>
     </section>
 

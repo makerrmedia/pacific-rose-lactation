@@ -146,9 +146,9 @@ export const SitePartsFragmentDoc = gql`
   bookingUrl
   instagramHandle
   instagramUrl
+  facebookUrl
   portraitPhoto
   tagline
-  heroCredit
   name
   url
   contactFormEndpoint
