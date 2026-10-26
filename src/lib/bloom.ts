@@ -28,11 +28,12 @@ export const MONL = ['January', 'February', 'March', 'April', 'May', 'June', 'Ju
 const pad = (n: number) => String(n).padStart(2, '0');
 export const key = (x: { y: number; m: number; d: number }) => `${x.y}-${pad(x.m + 1)}-${pad(x.d)}`;
 
-/** Today's date in Portland, regardless of where the code runs. */
-export function todayPT(): { y: number; m: number; d: number } {
-  const s = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' }).format(new Date());
+/** Today's date and hour in Portland, regardless of where the code runs. */
+export function todayPT(now = new Date()): { y: number; m: number; d: number; h: number } {
+  const s = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' }).format(now);
   const [y, m, d] = s.split('-').map(Number);
-  return { y, m: m - 1, d };
+  const h = Number(new Intl.DateTimeFormat('en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', hourCycle: 'h23' }).format(now));
+  return { y, m: m - 1, d, h };
 }
 
 function nthWeekday(y: number, m: number, weekday: number, n: number): number {
@@ -49,7 +50,13 @@ function parseKey(k: string) {
 const cmp = (a: { y: number; m: number; d: number }, b: { y: number; m: number; d: number }) =>
   a.y - b.y || a.m - b.m || a.d - b.d;
 
-export function upcoming(cfg: BloomConfig, count: number, from = todayPT()): BloomDate[] {
+export function upcoming(cfg: BloomConfig, count: number, from: { y: number; m: number; d: number; h?: number } = todayPT()): BloomDate[] {
+  // once today's session has ended, today no longer counts as upcoming
+  const todayOver = (from as { h?: number }).h !== undefined && (from as { h: number }).h >= cfg.endHour;
+  const isUpcoming = (date: { y: number; m: number; d: number }) => {
+    const c = cmp(date, from);
+    return c > 0 || (c === 0 && !todayOver);
+  };
   const cancelled = new Set(
     (cfg.cancelledDates || []).map((c) => (typeof c === 'string' ? c : c?.date || '').trim()).filter(Boolean)
   );
@@ -63,7 +70,7 @@ export function upcoming(cfg: BloomConfig, count: number, from = todayPT()): Blo
     for (const n of cfg.weeksOfMonth) {
       const day = nthWeekday(y, m, cfg.weekday, n);
       const date = { y, m, d: day };
-      if (cmp(date, from) >= 0 && !cancelled.has(key(date))) {
+      if (isUpcoming(date) && !cancelled.has(key(date))) {
         out.push(date);
         seen.add(key(date));
       }
@@ -76,7 +83,7 @@ export function upcoming(cfg: BloomConfig, count: number, from = todayPT()): Blo
   for (const e of cfg.extraDates || []) {
     if (!e?.date || !/^\d{4}-\d{2}-\d{2}$/.test(e.date.trim())) continue;
     const date = parseKey(e.date.trim());
-    if (cmp(date, from) >= 0 && !cancelled.has(e.date) && !seen.has(e.date)) {
+    if (isUpcoming(date) && !cancelled.has(e.date) && !seen.has(e.date)) {
       out.push({ ...date, note: e.note, special: true });
     }
   }
