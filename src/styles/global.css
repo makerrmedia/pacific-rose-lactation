@@ -467,3 +467,19 @@ footer .brand-text span:first-child{white-space:nowrap}
 .credit:hover{color:var(--petal)}
 .mm-logo{display:inline-block;width:72px;height:18px;background:currentColor;
   -webkit-mask:url(/images/makerr-media.png) center/contain no-repeat;mask:url(/images/makerr-media.png) center/contain no-repeat}
+
+/* phones: compact footer. Explore links are hidden (the menu has them); brand on top, Contact + Bloom Circle side by side */
+@media(max-width:600px){
+  footer{padding:48px 0 26px}
+  .f-explore{display:none}
+  .f-grid{row-gap:30px;padding-bottom:26px}
+  /* brand row: logo on the left, social icons on the right, description underneath */
+  .f-brand{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:16px}
+  .f-brand .brand{grid-column:1;grid-row:1}
+  .f-brand .f-social{grid-column:2;grid-row:1;margin-top:0;gap:12px}
+  .f-brand p{grid-column:1/-1;grid-row:2}
+  footer .f-brand p{margin-top:14px;max-width:none}
+  footer h4{margin-bottom:12px}
+  footer li{margin-bottom:7px}
+  .f-bot{padding-top:18px;gap:8px}
+}
